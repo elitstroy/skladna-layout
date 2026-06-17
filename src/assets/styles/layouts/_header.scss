@@ -62,5 +62,9 @@
     &__quick-cats-list {
       gap: $spacing-lg;
     }
+
+    &__quick-cats-wrap::after {
+      display: none;
+    }
   }
 }
