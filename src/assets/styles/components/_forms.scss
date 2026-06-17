@@ -40,7 +40,7 @@
   border-radius: $radius-sm;
   height: $control-height-md;
   padding: 0 $form-padding-x-md;
-  font-size: inherit;
+  font-size: $font-size-base;
   line-height: $line-height-none;
   transition: $transition-base;
   touch-action: manipulation;
@@ -72,7 +72,7 @@
   border: 1px solid $color-gray-400;
   border-radius: $radius-sm;
   padding: $form-padding-y-sm $form-padding-x-sm;
-  font-size: inherit;
+  font-size: $font-size-base;
   line-height: $line-height-normal;
   transition: $transition-base;
   touch-action: manipulation;
