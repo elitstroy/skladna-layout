@@ -42,7 +42,7 @@
   }
 
   &__info-text {
-    border-bottom-color: $color-gray-600 !important;
+    border-bottom-color: rgba(0, 0, 0, 0.3) !important;
   }
 
   &__info-arrow,
@@ -51,6 +51,6 @@
   }
 
   .desktop-header__nav-link {
-    text-decoration: underline $color-gray-600 !important;
+    text-decoration: underline rgba(0, 0, 0, 0.15) !important;
   }
 }
