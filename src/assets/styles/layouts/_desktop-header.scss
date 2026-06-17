@@ -50,7 +50,11 @@
       margin-left: 2px;
       transition: transform $transition-fast;
     }
+  }
 
+  &__info-icon {
+    width: 21px;
+    height: 21px;
   }
 
   &__nav {

@@ -1,0 +1,61 @@
+// =============================================================================
+// main-v1.scss — Главный файл стилей для Theme V1
+// =============================================================================
+@use 'themes/theme-v1';
+
+// 1. Base
+@use 'base/fonts';
+@use 'base/reset';
+@use 'base/base';
+@use 'base/typography';
+
+// 2. Vendor
+@use 'vendor/vendor';
+
+// 3. Components
+@use 'components/logo';
+@use 'components/alert';
+@use 'components/tabs';
+@use 'components/forms';
+@use 'components/buttons';
+@use 'components/slider';
+@use 'components/catalog-item';
+@use 'components/product-card';
+@use 'components/promo-card';
+@use 'components/service-card';
+@use 'components/hero-card';
+@use 'components/manager-card';
+@use 'components/info-card';
+@use 'components/award-card';
+@use 'components/branch-card';
+@use 'components/branch-map';
+@use 'components/video';
+@use 'components/callback';
+@use 'components/subscribe';
+@use 'components/social-links';
+@use 'components/search-rating';
+@use 'components/icon';
+
+// 4. Layouts
+@use 'layouts/container';
+@use 'layouts/header';
+@use 'layouts/mobile-header';
+@use 'layouts/desktop-header';
+@use 'layouts/main';
+@use 'layouts/footer';
+
+// 5. Sections
+@use 'sections/alert-bar';
+@use 'sections/hero';
+@use 'sections/catalog';
+@use 'sections/products';
+@use 'sections/promo';
+@use 'sections/services';
+@use 'sections/trust';
+@use 'sections/branches';
+@use 'sections/team';
+@use 'sections/useful';
+@use 'sections/awards';
+
+// 6. Utilities
+@use 'utilities/utilities';
