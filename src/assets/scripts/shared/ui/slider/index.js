@@ -41,7 +41,11 @@ export function initSliders() {
         products: {
             slidesPerView: 2.2,
             breakpoints: {
-                1200: {
+                768: {
+                    slidesPerView: 4,
+                },
+
+                992: {
                     slidesPerView: 5,
                 },
             },
@@ -51,7 +55,10 @@ export function initSliders() {
             slidesPerView: 1.2,
             spaceBetween: 12,
             breakpoints: {
-                1200: {
+                768: {
+                    slidesPerView: 3,
+                },
+                992: {
                     slidesPerView: 4,
                     spaceBetween: 24,
                 },
@@ -62,7 +69,10 @@ export function initSliders() {
             slidesPerView: 1.2,
             spaceBetween: 12,
             breakpoints: {
-                1200: {
+                768: {
+                    slidesPerView: 3,
+                },
+                992: {
                     slidesPerView: 4,
                     spaceBetween: 24,
                 },
@@ -77,7 +87,10 @@ export function initSliders() {
                 disableOnInteraction: true,
             },
             breakpoints: {
-                1200: {
+                768: {
+                    slidesPerView: 4,
+                },
+                992: {
                     slidesPerView: 5,
                     spaceBetween: 24,
                 },
