@@ -7,7 +7,7 @@
 // =============================================================================
 
 .footer {
-  margin-bottom: $spacing-lg;
+  margin: $spacing-4xl 0 $spacing-xs;
 
   &__row {
     display: grid;
@@ -216,6 +216,8 @@
 
 @include respond-to($breakpoint-desktop) {
   .footer {
+    margin: $spacing-4xl 0 $spacing-lg;
+
     &__middle {
       align-items: start;
       grid-template-columns: 3fr 4fr 5fr;
