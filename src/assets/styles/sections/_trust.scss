@@ -1,0 +1,127 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+// =============================================================================
+// Trust — Секция «Почему нам доверяют?»
+// =============================================================================
+
+.trust {
+  margin-bottom: $spacing-2xl;
+
+  &__head {
+    margin-bottom: $spacing-md;
+  }
+
+  &__title {
+    font-size: $font-size-2xl;
+    margin-bottom: $spacing-2xs;
+    text-transform: uppercase;
+    background-image: url("../../images/title-blob.png");
+    background-repeat: no-repeat;
+
+    @include respond-to($breakpoint-desktop) {
+      font-size: $font-size-3xl;
+    }
+  }
+
+  &__stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: $spacing-sm;
+    row-gap: $spacing-md;
+    background-color: $color-white;
+    padding: $spacing-md;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__stat {
+    flex-basis: 50%;
+  }
+
+  &__stat-top {
+    position: relative;
+  }
+
+  &__stat-decor {
+    position: absolute;
+    top: -3px;
+    left: 70px;
+    width: 40px;
+  }
+
+  &__stat-value {
+    font-size: $font-size-3xl;
+    background-color: $color-primary;
+    line-height: $line-height-none;
+    min-width: 75px;
+    display: inline-block;
+
+    @include respond-to($breakpoint-desktop) {
+      font-size: $font-size-4xl;
+    }
+  }
+
+  &__stat-label {
+    display: block;
+    font-size: $font-size-base;
+    color: $color-gray-600;
+  }
+
+  &__stat-platforms {
+    display: inline;
+  }
+
+  &__stat-platform {
+    font-weight: 600;
+    color: $color-text;
+
+    &--google {
+      color: #4285f4;
+    }
+
+    &--yandex {
+      color: #fc3f1d;
+    }
+  }
+}
+
+@include respond-to($breakpoint-desktop) {
+  .trust {
+    margin-bottom: $spacing-5xl;
+
+    &__body {
+      display: flex;
+      gap: $spacing-xl;
+    }
+
+    &__stats {
+      flex-basis: 50%;
+      padding: $spacing-2xl;
+
+      column-gap: $spacing-sm;
+      row-gap: $spacing-xl;
+      margin: 0;
+    }
+
+    &__stat-decor {
+      width: 65px;
+      top: -5px;
+      left: 95px;
+    }
+
+    &__stat-value {
+      font-size: $font-size-6xl;
+      min-width: 105px;
+    }
+
+    &__stat-label {
+      font-size: $font-size-lg;
+    }
+
+    &__video {
+      flex-basis: 50%;
+      margin: $spacing-neg-xs;
+      position: relative;
+    }
+  }
+}

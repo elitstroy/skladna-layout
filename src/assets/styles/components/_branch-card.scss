@@ -1,0 +1,99 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+// =============================================================================
+// Branch Card — Карточка филиала
+// =============================================================================
+
+.branch-card {
+  position: relative;
+  padding: $spacing-md;
+  background-color: $color-white;
+
+  &__more {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 20px;
+  }
+
+  &__title {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-medium;
+    margin-bottom: $spacing-md;
+  }
+
+  &__details {
+    @include list-reset;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__detail {
+    display: flex;
+    align-items: start;
+    gap: $spacing-sm;
+    margin-bottom: $spacing-sm;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__detail-icon {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+  }
+
+  &__detail-body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__detail-value {
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  &__map-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  // Модификатор: абсолютное позиционирование как tooltip (десктоп)
+  &--tooltip {
+    position: absolute;
+    z-index: $z-floating;
+    width: 280px;
+    padding: $spacing-md;
+    box-shadow: $shadow-lg;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(4px);
+    transition: opacity $transition-base, visibility $transition-base, transform $transition-base;
+    pointer-events: auto;
+
+    &.branch-card--visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    // Стрелочка снизу (прижата к пину)
+    &::after {
+      content: '';
+      position: absolute;
+      left: var(--arrow-left, 50%);
+      bottom: -6px;
+      transform: translateX(-50%);
+      width: 16px;
+      height: 8px;
+      background-color: $color-white;
+      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.08);
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+    }
+  }
+}

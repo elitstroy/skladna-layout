@@ -1,0 +1,6 @@
+node_modules/
+dist/
+*.css.map
+styles/main.css
+.DS_Store
+.idea/

@@ -1,0 +1,104 @@
+@use 'sass:color';
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+// =============================================================================
+// Callback — Форма обратного звонка (повторяется дважды на странице)
+// =============================================================================
+.callback {
+  margin-bottom: $spacing-2xl;
+
+  &__content {
+    flex: 1;
+    padding: $spacing-xl $spacing-md;
+    background-image: url("../../images/pattern.png");
+    background-repeat: repeat;
+    background-color: $color-primary;
+  }
+
+  &__head {
+    margin-bottom: $spacing-md;
+  }
+
+  &__title {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-normal;
+  }
+
+  &__subtitle {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-medium;
+  }
+
+  &__form {
+    display: grid;
+    gap: $spacing-sm;
+  }
+
+  &__image-wrap {
+    flex-shrink: 0;
+    overflow: hidden;
+    position: relative;
+    top: $spacing-xl;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+@include respond-to($breakpoint-desktop) {
+  .callback {
+    margin-bottom: $spacing-5xl;
+
+    &__content {
+      padding: $spacing-2xl;
+      position: relative;
+    }
+
+    &__head {
+      display: flex;
+      gap: $spacing-2xs;
+      align-items: center;
+    }
+
+    &__title {
+      font-size: $font-size-2xl;
+    }
+
+    &__subtitle {
+      font-size: $font-size-2xl;
+    }
+
+    &__form {
+      display: grid;
+      grid-template-areas:
+      "a a c"
+      "b b b";
+      max-width: 600px;
+    }
+
+    &__field {
+      grid-area: a;
+    }
+
+    &__agree {
+      grid-area: b;
+    }
+
+    &__submit {
+      grid-area: c;
+    }
+
+    &__image-wrap {
+      position: absolute;
+      bottom: 0;
+      right: $spacing-2xl;
+      top: auto;
+    }
+
+  }
+}

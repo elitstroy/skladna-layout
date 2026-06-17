@@ -1,0 +1,66 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+.header {
+  background-color: $color-white;
+
+  &__quick-cats {
+    padding: $spacing-xs 0;
+  }
+
+  &__quick-cats-wrap {
+    position: relative;
+  }
+
+  &__quick-cats-wrap::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(to left, white, transparent);
+  }
+
+  &__quick-cats-list {
+    @include list-reset;
+    display: flex;
+    gap: $spacing-md;
+    overflow-x: auto;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__quick-cats-item {
+    flex-shrink: 0;
+
+    &--more {
+      // Кнопка «все категории»
+    }
+  }
+
+  &__quick-cats-link {
+    display: inline-block;
+    padding: $spacing-3xs 0;
+    white-space: nowrap;
+
+    &--more {
+      // Стрелка «ещё»
+    }
+  }
+
+  &__quick-cats-arrow {
+  }
+}
+
+@include respond-to($breakpoint-desktop) {
+  .header {
+    &__quick-cats-list {
+      gap: $spacing-lg;
+    }
+  }
+}

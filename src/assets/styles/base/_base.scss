@@ -1,0 +1,48 @@
+@use 'variables' as *;
+@use '../base/mixins' as *;
+
+// =============================================================================
+// Base styles
+// =============================================================================
+
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-sm;
+  line-height: $line-height-normal;
+  color: $color-text;
+  background-color: $color-bg;
+}
+
+::selection {
+  background-color: $color-primary;
+  color: $color-black;
+}
+
+:focus-visible {
+  outline: 2px solid $color-primary;
+  outline-offset: 2px;
+}
+
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: $color-gray-400;
+  text-underline-offset: 4px;
+  transition: color $transition-fast, text-decoration-color $transition-fast;
+
+  &:hover {
+    text-decoration-color: $color-text;
+  }
+
+  &:active {
+  }
+
+  &:focus-visible {
+  }
+}
+
+/*@include respond-to($breakpoint-desktop) {
+  body {
+    font-size: $font-size-base;
+  }
+}*/

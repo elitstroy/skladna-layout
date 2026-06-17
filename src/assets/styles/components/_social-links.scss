@@ -1,0 +1,50 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+// =============================================================================
+// Social Links — Социальные сети
+// =============================================================================
+
+.social-links {
+  // — Список соцсетей —
+  &__list {
+    @include list-reset;
+    display: flex;
+    gap: $spacing-2xs;
+    margin-bottom: $spacing-xs;
+  }
+
+  &__item {
+    // Элемент списка соцсетей
+  }
+
+  &__link {
+    @include flex-center;
+    width: 40px;
+    height: 40px;
+    border-radius: $radius-sm;
+    background-color: $color-primary;
+    color: $color-white;
+    transition: background-color $transition-base;
+
+    &:hover {
+      background-color: $color-primary-dark;
+    }
+
+    &--telegram,
+    &--instagram,
+    &--viber,
+    &--tiktok,
+    &--youtube {
+      // Индивидуальные стили иконок при необходимости
+    }
+  }
+
+  &__icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  &__hint {
+  }
+}

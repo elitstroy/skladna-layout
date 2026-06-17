@@ -1,0 +1,417 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+// =============================================================================
+// Buttons — Базовые кнопки
+// =============================================================================
+
+/* === БАЗОВАЯ КНОПКА === */
+.button, .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-xs;
+  height: $control-height-md;
+  padding: 0 $btn-padding-x-md;
+  font-size: $font-size-base;
+  line-height: $line-height-none;
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: $radius-sm;
+  cursor: pointer;
+  transition: all $transition-base;
+  background-color: $color-primary;
+  color: $color-black;
+  font-family: inherit;
+  font-weight: $font-weight-semibold;
+  min-width: auto;
+
+  &:active {
+    transform: scale(1.05);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+/* === РАЗМЕРЫ === */
+
+// Очень маленькая
+.button.button-xs,
+.btn.btn-xs {
+  height: $control-height-xs;
+  padding: 0 $btn-padding-x-xs;
+  font-size: $font-size-sm;
+}
+
+// Маленькая
+.button.button-sm,
+.btn.btn-sm {
+  height: $control-height-sm;
+  padding: 0 $btn-padding-x-sm;
+  font-size: $font-size-sm;
+}
+
+// Средняя (по умолчанию)
+.button-md, .btn-md {
+  height: $control-height-md;
+  padding: 0 $btn-padding-x-md;
+  font-size: $font-size-base;
+}
+
+// Большая
+.button-lg, .btn-lg {
+  height: $control-height-lg;
+  padding: 0 $btn-padding-x-lg;
+  font-size: $font-size-base;
+}
+
+// Очень большая
+.button-xl, .btn-xl {
+  height: $control-height-xl;
+  padding: 0 $btn-padding-x-xl;
+  font-size: $font-size-lg;
+}
+
+/* === ЦВЕТА === */
+
+.button-primary,
+.btn-primary {
+  background-color: $color-primary;
+  border-color: $color-primary;
+  color: $color-black;
+
+  &:hover {
+    background-color: $color-primary-dark;
+    border-color: $color-primary-dark;
+  }
+}
+
+.button-secondary,
+.btn-secondary {
+  background-color: $color-secondary;
+  border-color: $color-secondary;
+  color: $color-black;
+
+  &:hover {
+    background-color: $color-secondary-dark;
+    border-color: $color-secondary-dark;
+  }
+}
+
+// Желтая
+.button-warning, .btn-warning {
+  background-color: $color-warning;
+  border-color: $color-warning;
+  color: $color-black;
+
+  &:hover {
+    background-color: $color-warning-dark;
+    border-color: $color-warning-dark;
+  }
+}
+
+// Красная
+.button-danger, .btn-danger {
+  background-color: $color-danger;
+  border-color: $color-danger;
+  color: $color-black;
+
+  &:hover {
+    background-color: $color-danger-dark;
+    border-color: $color-danger-dark;
+  }
+}
+
+// Зеленая
+.button-success, .btn-success {
+  background-color: $color-success;
+  border-color: $color-success;
+  color: $color-black;
+
+  &:hover {
+    background-color: $color-success-dark;
+    border-color: $color-success-dark;
+  }
+}
+
+// Светлая
+.button-light, .btn-light {
+  background-color: $color-gray-100;
+  border-color: $color-gray-100;
+  color: $color-gray-500;
+
+  &:hover {
+    background-color: $color-gray-200;
+    border-color: $color-gray-200;
+  }
+}
+
+// Серая
+.button-gray, .btn-gray {
+  background-color: $color-gray-400;
+  border-color: $color-gray-400;
+  color: $color-black;
+
+  &:hover {
+    background-color: $color-gray-500;
+    border-color: $color-gray-500;
+  }
+}
+
+/* === МОДИФИКАТОРЫ === */
+
+// Блочная
+.button-block, .btn-block {
+  width: 100%;
+}
+
+// Верхний регистр
+.btn.btn-upper {
+  text-transform: uppercase;
+}
+
+/* === BORDER RADIUS МОДИФИКАТОРЫ === */
+
+// Без закругления
+.button-square, .btn-square {
+  border-radius: $radius-none;
+}
+
+// Маленькое закругление
+.button-rounded-sm, .btn-rounded-sm {
+  border-radius: $radius-sm;
+}
+
+// Среднее закругление
+.button-rounded, .btn-rounded {
+  border-radius: $radius-md;
+}
+
+// Большое закругление
+.button-rounded-lg, .btn-rounded-lg {
+  border-radius: $radius-lg;
+}
+
+// Очень большое закругление
+.button-rounded-xl, .btn-rounded-xl {
+  border-radius: $radius-xl;
+}
+
+// Полное закругление (таблетка)
+.button-pill, .btn-pill {
+  border-radius: $radius-full;
+}
+
+// Круглая кнопка
+.button-circle, .btn-circle {
+  border-radius: $radius-full;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+
+  &.button-sm, &.btn-sm {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  &.button-lg, &.btn-lg {
+    width: 3rem;
+    height: 3rem;
+  }
+}
+
+// Только обводка
+.button-outline, .btn-outline {
+  background-color: transparent;
+  border-width: 1px;
+  border-color: $color-gray-600;
+
+  &:hover {
+    background-color: $color-gray-600;
+    color: $color-white;
+  }
+}
+
+.button.button-outline.is-active, .btn.btn-outline.is-active {
+  border-color: $color-primary;
+  background-color: $color-primary;
+}
+
+.btn-primary.button-outline,
+.btn-primary.btn-outline {
+  background-color: transparent;
+  border-width: 1px;
+  border-color: $color-primary;
+  color: $color-primary-dark;
+
+  &:hover {
+    background-color: $color-primary;
+    color: $color-black;
+  }
+}
+
+.btn-secondary.button-outline,
+.btn-secondary.btn-outline {
+  background-color: transparent;
+  border-width: 1px;
+  border-color: $color-secondary-dark;
+  color: $color-secondary-dark;
+
+  &:hover {
+    background-color: $color-secondary;
+    color: $color-black;
+  }
+}
+
+.btn-danger.button-outline, .btn-danger.btn-outline {
+  background-color: transparent;
+  border-width: 1px;
+  border-color: $color-danger;
+  color: $color-danger;
+
+  &:hover {
+    background-color: $color-danger;
+    color: $color-black;
+  }
+}
+
+.btn-light.btn-outline {
+  color: $color-gray-100;
+  border-color: $color-gray-100;
+
+  &:hover {
+    color: $color-white;
+    background-color: $color-gray-700;
+    border-color: $color-gray-700;
+  }
+}
+
+.btn-gray.btn-outline {
+  color: $color-gray-600;
+
+  &:hover {
+    color: $color-white;
+    background-color: $color-gray-700;
+    border-color: $color-gray-700;
+  }
+}
+
+/* === ИКОНКИ === */
+
+// Иконка внутри кнопки (масштабируется с font-size через em)
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  width: 1.375em;
+  height: 1.375em;
+
+  svg {
+    width: 100%;
+    height: 100%;
+    fill: currentColor;
+  }
+}
+
+/* === СОСТОЯНИЯ === */
+
+// Загрузка
+.button-loading, .btn-loading {
+  position: relative;
+  font-size: 0;
+  line-height: 0;
+  min-width: 6rem;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin: -0.625rem 0 0 -0.625rem;
+    border: 2px solid transparent;
+    border-top-color: currentColor;
+    border-radius: $radius-full;
+    animation: btn-spin 1s linear infinite;
+  }
+}
+
+@keyframes btn-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* === ГРУППЫ КНОПОК === */
+.btn-group {
+  display: inline-flex;
+
+  .button,
+  .btn {
+    border-radius: $radius-none;
+    margin-left: -1px;
+  }
+
+  .button:first-child,
+  .btn:first-child {
+    border-top-left-radius: $radius-sm;
+    border-bottom-left-radius: $radius-sm;
+    margin-left: 0;
+  }
+
+  .button:last-child,
+  .btn:last-child {
+    border-top-right-radius: $radius-sm;
+    border-bottom-right-radius: $radius-sm;
+  }
+}
+
+/* === АНИМАЦИЯ ПЕРЕЛИВА === */
+
+.button-shimmer,
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      110deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.75) 50%,
+      transparent 100%
+    );
+    transform: translateX(-120%);
+    animation: btn-shimmer 2.5s infinite;
+    pointer-events: none;
+  }
+}
+
+@keyframes btn-shimmer {
+  0% {
+    transform: translateX(-120%);
+  }
+  65% {
+    transform: translateX(120%);
+  }
+  100% {
+    transform: translateX(120%);
+  }
+}
+
+// Отключение анимации для пользователей, предпочитающих уменьшенное движение
+@media (prefers-reduced-motion: reduce) {
+  .button-shimmer::before,
+  .btn-shimmer::before {
+    animation: none;
+  }
+}

@@ -1,0 +1,57 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+// =============================================================================
+// Useful — Секция «Полезная информация»
+// =============================================================================
+
+.useful {
+  margin-bottom: $spacing-2xl;
+
+  &__head {
+    margin-bottom: $spacing-md;
+  }
+
+  &__title {
+    font-size: $font-size-2xl;
+    margin-bottom: $spacing-2xs;
+    text-transform: uppercase;
+    background-image: url("../../images/title-blob.png");
+    background-repeat: no-repeat;
+  }
+
+  &__list {
+    @include list-reset;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+
+@include respond-to($breakpoint-desktop) {
+  .useful {
+    margin-bottom: $spacing-5xl;
+
+    &__list {
+      grid-template-columns: 3fr 2fr;
+      grid-template-rows: repeat(2, 1fr);
+    }
+
+    &__item:first-child {
+      grid-row: span 2;
+
+      .info-card {
+        height: 440px;
+      }
+    }
+
+    &__item:not(:first-child) {
+      .info-card {
+        height: 220px;
+      }
+    }
+
+    &__title {
+      font-size: $font-size-3xl;
+    }
+  }
+}

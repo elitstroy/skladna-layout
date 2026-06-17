@@ -1,0 +1,40 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+// =============================================================================
+// Products — Секция товаров (слайдер с фильтрацией)
+// =============================================================================
+
+.products {
+  margin-bottom: $spacing-2xl;
+
+  &__toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__body {
+    margin-bottom: $spacing-md;
+  }
+
+  &__footer {
+    max-width: 360px;
+    margin: 0 auto;
+  }
+}
+
+@include respond-to($breakpoint-desktop) {
+  .products {
+    margin-bottom: $spacing-5xl;
+
+    &__body {
+      margin-bottom: $spacing-lg;
+    }
+
+    &__footer {
+      max-width: 320px;
+      margin: 0 auto;
+    }
+  }
+}

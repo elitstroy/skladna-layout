@@ -1,0 +1,33 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+// =============================================================================
+// Metric Card — Карточка преимущества
+// =============================================================================
+
+.hero-card {
+  padding: $spacing-md;
+  background-color: $color-white;
+
+  &__title {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-semibold;
+  }
+
+  &__text {
+    color: $color-gray-600;
+  }
+}
+
+@include respond-to($breakpoint-desktop) {
+  .hero-card {
+
+    &__title {
+      font-size: $font-size-3xl;
+    }
+
+    &:last-child {
+      grid-column: 1 / -1;
+    }
+  }
+}

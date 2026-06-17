@@ -1,0 +1,61 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+// =============================================================================
+// Branches — Секция филиалов (карта + карточка)
+// =============================================================================
+
+.branches {
+  margin-bottom: $spacing-2xl;
+
+  &__container {
+    position: relative;
+  }
+
+  &__head {
+    margin-bottom: $spacing-md;
+  }
+
+  &__title {
+    font-size: $font-size-2xl;
+    margin-bottom: $spacing-2xs;
+    text-transform: uppercase;
+    background-image: url("../../images/title-blob.png");
+    background-repeat: no-repeat;
+
+    @include respond-to($breakpoint-desktop) {
+      font-size: $font-size-3xl;
+    }
+  }
+
+  &__map {
+    @include container;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__footer {
+    @include container;
+  }
+
+  &__contacts-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 14px;
+    font-weight: 600;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  &__contacts-arrow {
+    font-size: 16px;
+  }
+}
+
+@include respond-to($breakpoint-desktop) {
+  .branches {
+    margin-bottom: $spacing-5xl;
+  }
+}

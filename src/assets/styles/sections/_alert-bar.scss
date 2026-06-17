@@ -1,0 +1,26 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+// =============================================================================
+// Alert Bar — Секция-обёртка для группировки alert-уведомлений
+// =============================================================================
+
+.alert-bar {
+  margin: $spacing-lg 0;
+
+  &__row {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+  }
+}
+
+@include respond-to($breakpoint-desktop) {
+  .alert-bar {
+    margin: $spacing-xl 0;
+
+    &__row {
+      gap: $spacing-xs;
+    }
+  }
+}

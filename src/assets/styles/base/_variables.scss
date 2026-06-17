@@ -1,0 +1,201 @@
+// =============================================================================
+// Variables
+// =============================================================================
+
+@use 'sass:color';
+
+// === ЦВЕТА ===
+$color-white: #fff;
+$color-black: #000;
+
+$color-primary: #C8E600;
+$color-primary-light: color.adjust($color-primary, $lightness: 3%);
+$color-primary-dark: color.adjust($color-primary, $lightness: -3%);
+
+$color-secondary: #00D3E8;
+$color-secondary-light: color.adjust($color-secondary, $lightness: 3%);
+$color-secondary-dark: color.adjust($color-secondary, $lightness: -3%);
+
+$color-success: #28a745;
+$color-success-light: color.adjust($color-success, $lightness: 6%);
+$color-success-dark: color.adjust($color-success, $lightness: -6%);
+
+$color-info: #E9F4FCFF;
+$color-danger-light: color.adjust($color-info, $lightness: 6%);
+$color-danger-dark: color.adjust($color-info, $lightness: -6%);
+
+$color-danger: #FFE1DDFF;
+$color-danger-light: color.adjust($color-danger, $lightness: 6%);
+$color-danger-dark: color.adjust($color-danger, $lightness: -6%);
+
+$color-warning: #FDF1E0FF;
+$color-warning-light: color.adjust($color-warning, $lightness: 6%);
+$color-warning-dark: color.adjust($color-warning, $lightness: -6%);
+
+// Серые тона
+$color-gray-100: #f8f9fa;
+$color-gray-150: #f1f3f5;
+$color-gray-200: #e9ecef;
+$color-gray-300: #dee2e6;
+$color-gray-400: #ced4da;
+$color-gray-500: #adb5bd;
+$color-gray-600: #6c757d;
+$color-gray-700: #495057;
+$color-gray-800: #343a40;
+$color-gray-900: #212529;
+
+// Фон и текст
+$color-bg: #f1f3f5;
+$color-text: #000;
+$color-text-muted: #6c757d;
+$color-border: #dee2e6;
+$color-border-light: #eee;
+
+
+// === ТИПОГРАФИКА ===
+
+// Font family
+$font-family-base: nbrb, "Open Sans", arial, sans-serif;
+
+// Font weights
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// Font sizes
+$font-size-2xs: 0.625rem; /* 10px */
+$font-size-xs: 0.75rem; /* 12px */
+$font-size-sm: 0.875rem; /* 14px */
+$font-size-md: 16px; /* 16px */
+$font-size-base: 16px; /* 16px */
+$font-size-lg: 1.125rem; /* 18px */
+$font-size-xl: 1.25rem; /* 20px */
+$font-size-2xl: 1.5rem; /* 24px */
+$font-size-3xl: 1.875rem; /* 30px */
+$font-size-4xl: 2.25rem; /* 36px */
+$font-size-5xl: 2.625rem; /* 42px */
+$font-size-6xl: 3rem; /* 68px */
+
+// Line heights
+$line-height-none: 1;
+$line-height-tight: 1.25;
+$line-height-snug: 1.375;
+$line-height-normal: 1.5;
+$line-height-relaxed: 1.625;
+$line-height-loose: 2;
+
+// === BORDER RADIUS ===
+$radius-none: 0;
+$radius-xs: 0.125rem; /* 2px */
+$radius-sm: 0.1875rem; /* 3px */
+$radius-md: 0.375rem; /* 6px */
+$radius-lg: 0.5rem; /* 8px */
+$radius-xl: 0.75rem; /* 12px */
+$radius-2xl: 1rem; /* 16px */
+$radius-3xl: 1.5rem; /* 24px */
+$radius-full: 50%;
+
+// === РАЗМЕРЫ КОМПОНЕНТОВ ===
+
+// Унифицированные высоты контролов (кнопки + поля форм)
+$control-height-xs: 1.75rem; // 28px
+$control-height-sm: 2rem; // 32px
+$control-height-md: 2.5rem; // 40px
+$control-height-lg: 3rem; // 48px
+$control-height-xl: 3.5rem; // 56px
+
+// Кнопки — только горизонтальные паддинги
+$btn-padding-x-xs: 0.375rem; // 6px
+$btn-padding-x-sm: 0.5rem; // 8px
+$btn-padding-x-md: 0.75rem; // 12px
+$btn-padding-x-lg: 1rem; // 16px
+$btn-padding-x-xl: 2rem; // 32px
+
+// Поля форм — горизонтальные паддинги (input/select)
+$form-padding-x-xs: 0.375rem;
+$form-padding-x-sm: 0.5rem;
+$form-padding-x-md: 0.75rem;
+$form-padding-x-lg: 1rem;
+$form-padding-x-xl: 2rem;
+
+// Поля форм — вертикальные паддинги (для textarea)
+$form-padding-y-xs: 0.3rem;
+$form-padding-y-sm: 0.6rem;
+$form-padding-y-md: 0.75rem;
+$form-padding-y-lg: 1rem;
+$form-padding-y-xl: 1.25rem;
+
+// Бейджи
+$badge-padding-xs: 0.125rem 0.375rem;
+$badge-padding-sm: 0.25rem 0.5rem;
+$badge-padding-md: 0.375rem 0.75rem;
+$badge-padding-lg: 0.5rem 1rem;
+$badge-padding-xl: 0.625rem 1.25rem;
+
+
+// === ОТСТУПЫ ===
+$spacing-3xs: 0.125rem; /* 2px */
+$spacing-2xs: 0.25rem; /* 4px */
+$spacing-xs: 0.5rem; /* 8px */
+$spacing-sm: 0.75rem; /* 12px */
+$spacing-md: 1rem; /* 16px */
+$spacing-lg: 1.5rem; /* 24px */
+$spacing-xl: 2rem; /* 32px */
+$spacing-2xl: 3rem; /* 48px */
+$spacing-3xl: 4rem; /* 64px */
+$spacing-4xl: 5rem; /* 80px */
+$spacing-5xl: 6rem; /* 96px */
+$spacing-6xl: 8rem; /* 128px */
+
+$spacing-neg-2xs: -0.375rem; /* -6px */
+$spacing-neg-xs: -0.5rem; /* -8px */
+$spacing-neg-sm: -0.75rem; /* -12px */
+$spacing-neg-md: -1rem; /* -16px */
+$spacing-neg-lg: -1.5rem; /* -24px */
+$spacing-neg-xl: -2rem; /* -32px */
+$spacing-neg-2xl: -3rem; /* -48px */
+$spacing-neg-3xl: -4rem; /* -64px */
+$spacing-neg-4xl: -5rem; /* -80px */
+$spacing-neg-5xl: -6rem; /* -96px */
+$spacing-neg-6xl: -8rem; /* -128px */
+
+// === КОНТЕЙНЕРЫ ===
+$container-max-width: 1200px;
+$container-border-radius: $radius-lg;
+
+// === СЕТКА ===
+$grid-gutter: 1rem;
+$grid-columns: 12;
+
+// === АНИМАЦИИ ===
+$transition-fast: 0.15s ease;
+$transition-base: 0.2s ease;
+$transition-slow: 0.3s ease;
+
+// === ТЕНИ ===
+$shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+$shadow-md: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+
+// === Z-INDEX ===
+$z-negative: -1;
+$z-base: 0;
+$z-badge: 1;
+$z-sticker: 11000;
+$z-overlay: 11008;
+$z-floating: 11012;
+$z-sticky: 11014;
+$z-fixed: 11014;
+$z-modal-backdrop: 11016;
+$z-modal: 11024;
+$z-notification: 11032;
+
+
+// === БРЕЙКПОИНТЫ ===
+$breakpoint-desktop: 992px;
+
+// Карта брейкпоинтов (для миксина respond-to)
+$breakpoints: (
+        'desktop': $breakpoint-desktop,
+);

@@ -1,0 +1,69 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+// =============================================================================
+// Manager Card — Карточка менеджера
+// =============================================================================
+
+.manager-card {
+  display: flex;
+  flex-direction: column;
+  background-color: $color-white;
+  padding: $spacing-md;
+  height: 100%;
+
+  &__image-wrap {
+    margin-bottom: $spacing-md;
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  &__body {
+  }
+
+  &__name {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-medium;
+    margin-bottom: $spacing-sm;
+    text-transform: uppercase;
+  }
+
+  &__facts {
+    @include list-reset;
+  }
+
+  &__fact {
+    position: relative;
+    line-height: $line-height-normal;
+    padding-left: $spacing-md;
+    margin-bottom: $spacing-sm;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 6px;
+      width: 8px;
+      height: 8px;
+      background-color: $color-secondary-dark;
+    }
+  }
+}
+
+@include respond-to($breakpoint-desktop) {
+  .manager-card {
+    padding: $spacing-lg;
+
+    &__name {
+      font-size: $font-size-xl;
+    }
+
+    &__facts {
+      font-size: $font-size-base;
+    }
+  }
+}

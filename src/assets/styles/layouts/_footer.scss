@@ -1,0 +1,312 @@
+@use 'sass:color';
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+// =============================================================================
+// Footer — Подвал сайта
+// =============================================================================
+
+.footer {
+  margin-bottom: $spacing-lg;
+
+  &__row {
+    display: grid;
+    gap: $spacing-xl;
+  }
+
+  &__middle {
+    display: grid;
+    gap: $spacing-xl;
+  }
+
+  // — Контакты —
+  &__contacts {
+    display: grid;
+    gap: $spacing-lg;
+  }
+
+  &__contacts-title {
+    margin-bottom: $spacing-sm;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+  }
+
+  &__city-link {
+    color: $color-secondary;
+    font-weight: $font-weight-semibold;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: $spacing-2xs;
+    margin-bottom: $spacing-2xs;
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  &__worktime-text {
+    margin: 0;
+  }
+
+  &__phone {
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-2xs;
+
+  }
+
+  &__icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  &__email {
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-2xs;
+  }
+
+  // — Филиалы —
+  &__branches-title {
+    margin-bottom: $spacing-sm;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+  }
+
+  &__branches-list {
+    @include list-reset;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-md;
+  }
+
+  &__branch-link {
+    color: $color-secondary;
+    font-weight: $font-weight-semibold;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: $spacing-2xs;
+    margin-bottom: $spacing-2xs;
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  &__branch-address {
+    font-size: $font-size-xs;
+  }
+
+  // Боковая колонка
+  &__aside {
+    display: grid;
+    gap: $spacing-xl;
+  }
+
+  // — Навигация (аккордеон) —
+  &__nav {
+    display: grid;
+    gap: $spacing-sm;
+  }
+
+  &__nav-group {
+    background-color: $color-white;
+
+    &--open {
+      .footer__nav-group-title::after {
+        transform: rotate(225deg);
+      }
+    }
+  }
+
+  &__nav-group-title {
+    cursor: pointer;
+    position: relative;
+    display: block;
+    width: 100%;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+    padding: $spacing-sm $spacing-md;
+    background: none;
+    border: none;
+    text-align: left;
+    color: inherit;
+    font-family: inherit;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 12px;
+      height: 12px;
+      border-right: 2px solid currentColor;
+      border-bottom: 2px solid currentColor;
+      position: absolute;
+      top: $spacing-md;
+      right: $spacing-md;
+      transform: rotate(45deg);
+      transition: transform $transition-base;
+    }
+  }
+
+  &__nav-collapse {
+    overflow: hidden;
+  }
+
+  &__nav-list {
+    @include list-reset;
+    padding: 0 $spacing-md $spacing-md;
+  }
+
+  &__nav-item {
+    margin-bottom: $spacing-xs;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  // – Подписка –
+
+  // Нижняя часть футера
+  .footer__bottom {
+    display: grid;
+    gap: $spacing-xl;
+    background-color: $color-white;
+    padding: $spacing-md;
+  }
+
+  // — Юридическая информация —
+  &__legal-text {
+    font-size: $font-size-xs;
+    color: $color-gray-600;
+    margin-bottom: $spacing-sm;
+  }
+
+  // — Платёжные системы —
+  &__payments-list {
+    @include list-reset;
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-md;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__payment-icon {
+    height: 32px;
+    width: auto;
+    opacity: 0.6;
+    filter: grayscale(100%);
+  }
+
+  &__ratings {
+    margin-bottom: $spacing-sm;
+  }
+
+  &__ratings-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-sm;
+  }
+}
+
+@include respond-to($breakpoint-desktop) {
+  .footer {
+    &__middle {
+      align-items: start;
+      grid-template-columns: 3fr 4fr 5fr;
+      grid-template-areas:
+      "a b c"
+      "a b d";
+    }
+
+    &__contacts {
+      grid-area: a;
+    }
+
+    &__branches {
+      grid-area: b;
+    }
+
+    &__branches-list {
+      row-gap: $spacing-xl;
+    }
+
+    &__branch-address {
+      font-size: $font-size-sm;
+    }
+
+    &__aside {
+      grid-area: c;
+    }
+
+    // — Навигация (аккордеон) —
+    &__nav {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      align-items: start;
+      gap: $spacing-md;
+      background-color: $color-white;
+      padding: $spacing-lg;
+    }
+
+    &__nav-group {
+      display: block;
+      background-color: transparent;
+    }
+
+    &__nav-group-title {
+      cursor: default;
+      pointer-events: none;
+      margin-bottom: $spacing-md;
+      padding: 0;
+
+      &::after {
+        display: none;
+      }
+    }
+
+    &__nav-collapse {
+      display: block !important;
+
+      &[hidden] {
+        display: block !important;
+      }
+    }
+
+    &__nav-list {
+      display: block;
+      padding: 0;
+    }
+
+    &__bottom {
+      align-items: center;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas:
+      "a b"
+      "a c";
+      gap: $spacing-lg;
+    }
+
+    &__legal {
+      grid-area: a;
+    }
+
+    &__payments {
+      grid-area: b;
+    }
+
+    &__ratings {
+      grid-area: c;
+    }
+
+    &__ratings-list {
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+}

@@ -1,0 +1,99 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+// =============================================================================
+// Services — Секция услуг
+// =============================================================================
+
+.services {
+  margin-bottom: $spacing-2xl;
+  position: relative;
+
+  &__decor {
+    width: 100%;
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: $z-negative;
+  }
+
+  &__row {
+    position: relative;
+  }
+
+  &__head {
+    margin-bottom: $spacing-lg;
+  }
+
+  &__title {
+    font-size: $font-size-2xl;
+    margin-bottom: $spacing-2xs;
+    text-transform: uppercase;
+    background-image: url("../../images/title-blob.png");
+    background-repeat: no-repeat;
+
+    @include respond-to($breakpoint-desktop) {
+      font-size: $font-size-3xl;
+    }
+  }
+
+  &__list {
+    @include list-reset;
+    display: grid;
+    gap: $spacing-sm;
+    margin-bottom: $spacing-md;
+  }
+
+  &__arrow {
+    position: absolute;
+    z-index: $z-overlay;
+    transform: rotate(-60deg)scaleX(-1);
+    width: 160px;
+    bottom: -50px;
+    right: 0;
+  }
+
+  &__item {
+    position: relative;
+  }
+
+  &__footer {
+    max-width: 360px;
+    margin: 0 auto;
+  }
+}
+
+@include respond-to($breakpoint-desktop) {
+  .services {
+    margin-bottom: $spacing-5xl;
+
+    &__decor {
+      display: block;
+    }
+
+    &__arrow {
+      right: -60px;
+      top: -40px;
+      bottom: auto;
+      transform: none;
+    }
+
+    &__list {
+      gap: $spacing-lg;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    &__item {
+      &:last-child {
+        grid-column: 1 / -1;
+      }
+    }
+
+    &__footer {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+}

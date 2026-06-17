@@ -1,0 +1,70 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+// =============================================================================
+// Tabs — Табы (фильтрация / навигация)
+// =============================================================================
+
+.tabs {
+  position: relative;
+
+  &__list {
+    @include list-reset;
+    display: inline-flex;
+    overflow-x: auto;
+    scrollbar-width: none;
+    gap: $spacing-2xs;
+    position: relative;
+    margin-bottom: $spacing-2xs;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 30px;
+      height: 100%;
+      pointer-events: none;
+      background: linear-gradient(to left, white, transparent);
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__item {
+    flex-shrink: 0;
+  }
+
+  &__btn {
+    background-color: $color-white;
+    padding: $spacing-xs $spacing-sm;
+    white-space: nowrap;
+    transition: background-color $transition-base, color $transition-base;
+
+    &--active {
+      background-color: $color-primary;
+      color: $color-black;
+    }
+  }
+
+  &__panel {
+    &:not(.tabs__panel--active) {
+      display: none;
+    }
+  }
+}
+
+@include respond-to($breakpoint-desktop) {
+  .tabs {
+    &__btn {
+      font-size: $font-size-base;
+      padding: $spacing-sm $spacing-md;
+    }
+
+    &::after {
+      display: none;
+    }
+  }
+}

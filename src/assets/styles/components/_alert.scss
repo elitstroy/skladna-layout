@@ -1,0 +1,124 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+// =============================================================================
+// Alert — Универсальный попап-уведомление
+// =============================================================================
+.alert {
+  z-index: $z-modal;
+  position: relative;
+  display: flex;
+  padding: $spacing-sm;
+  flex-direction: column;
+  gap: $spacing-sm;
+  width: 100%;
+  margin: 0 auto;
+
+  &__close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: $control-height-sm;
+    height: $control-height-sm;
+    padding: 0;
+    border: none;
+    background: none;
+    font-size: $font-size-xl;
+    line-height: 1;
+    color: $color-gray-600;
+    cursor: pointer;
+    border-radius: $radius-sm;
+    transition: color $transition-fast, background-color $transition-fast;
+
+    &:hover {
+      color: $color-text;
+      background-color: transparent;
+    }
+  }
+
+  &__icon {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-2xs;
+  }
+
+  &__title {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-tight;
+    color: $color-text;
+  }
+
+  &__text {
+    font-size: $font-size-xs;
+    line-height: $line-height-normal;
+    color: $color-gray-600;
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-xs;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  &__btn {
+    &--primary {
+      &:hover {
+      }
+    }
+
+    &--secondary {
+      &:hover {
+      }
+    }
+  }
+
+  // Цветовые модификаторы
+  &--warning {
+    background-color: $color-warning;
+  }
+
+  &--info {
+    background-color: $color-info;
+  }
+
+  &--danger {
+    background-color: $color-danger;
+  }
+}
+
+
+@include respond-to($breakpoint-desktop) {
+  .alert {
+    gap: $spacing-lg;
+    flex-direction: row;
+    padding: $spacing-md;
+
+    &__icon {
+      display: flex;
+    }
+
+    &__actions {
+      margin-left: auto;
+    }
+  }
+}

@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>UI Kit / Формы — Кнопки и поля</title>
+    <style>
+        /* Стили для демо-страницы */
+        .demo-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .demo-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .demo-subtitle {
+            color: #6c757d;
+            margin-bottom: 48px;
+            font-size: 1rem;
+        }
+        .demo-section {
+            margin-bottom: 56px;
+        }
+        .demo-section__title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e9ecef;
+        }
+        .demo-section__desc {
+            color: #6c757d;
+            font-size: 0.875rem;
+            margin-bottom: 24px;
+        }
+        .demo-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        .demo-grid--col {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .demo-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        .demo-row__label {
+            font-size: 0.75rem;
+            color: #6c757d;
+            min-width: 100px;
+            flex-shrink: 0;
+        }
+        .demo-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 24px;
+        }
+        .demo-table th,
+        .demo-table td {
+            padding: 12px 16px;
+            text-align: left;
+            border: 1px solid #dee2e6;
+            vertical-align: middle;
+        }
+        .demo-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            font-size: 0.875rem;
+            color: #495057;
+        }
+        .demo-table td {
+            font-size: 0.875rem;
+        }
+        .demo-table td:first-child {
+            font-family: monospace;
+            font-size: 0.75rem;
+            color: #6c757d;
+            white-space: nowrap;
+        }
+        .demo-tag {
+            display: inline-block;
+            background: #e9ecef;
+            color: #495057;
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        .demo-subsection {
+            margin-bottom: 32px;
+        }
+        .demo-subsection__title {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #343a40;
+        }
+        .demo-field-wrap {
+            max-width: 360px;
+            margin-bottom: 16px;
+        }
+        .demo-separator {
+            border: none;
+            border-top: 1px solid #dee2e6;
+            margin: 32px 0;
+        }
+        .demo-compare {
+            margin-bottom: 24px;
+        }
+        .demo-compare__row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        .demo-compare__label {
+            font-size: 0.75rem;
+            color: #6c757d;
+            min-width: 60px;
+            flex-shrink: 0;
+            font-family: monospace;
+        }
+        .demo-compare__btn,
+        .demo-compare__input {
+            flex: 1;
+            max-width: 400px;
+        }
+        .demo-compare__height {
+            font-size: 0.75rem;
+            color: #28a745;
+            font-family: monospace;
+            white-space: nowrap;
+        }
+        .demo-compare__separator {
+            height: 1px;
+            background: #dee2e6;
+            margin: 24px 0;
+        }
+    </style>
+</head>
+<body>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+    <!-- arrow -->
+    <symbol id="icon-arrow-up-right" viewBox="0 0 256 256">
+        <path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"/>
+    </symbol>
+</svg>
+
+<div class="demo-wrapper">
+    <h1 class="demo-title">UI Kit / Формы: Кнопки и поля ввода</h1>
+    <p class="demo-subtitle">Витрина всех вариантов кнопок и полей форм. Будут добавлены другие разделы UI Kit.</p>
+
+    <!-- ============================================================ -->
+    <!-- 1. КНОПКИ — РАЗМЕРЫ -->
+    <!-- ============================================================ -->
+    <section class="demo-section">
+        <h2 class="demo-section__title">1.1 Размеры кнопок</h2>
+        <p class="demo-section__desc">Классы: <span class="demo-tag">.btn-xs</span> <span class="demo-tag">.btn-sm</span> <span class="demo-tag">.btn-md</span> <span class="demo-tag">.btn-lg</span> <span class="demo-tag">.btn-xl</span></p>
+
+        <div class="demo-row">
+            <span class="demo-row__label">xs</span>
+            <button class="btn btn-xs btn-secondary" type="button">Кнопка XS</button>
+        </div>
+        <div class="demo-row">
+            <span class="demo-row__label">sm</span>
+            <button class="btn btn-sm btn-secondary" type="button">Кнопка SM</button>
+        </div>
+        <div class="demo-row">
+            <span class="demo-row__label">md</span>
+            <button class="btn btn-md btn-secondary" type="button">Кнопка MD</button>
+        </div>
+        <div class="demo-row">
+            <span class="demo-row__label">lg</span>
+            <button class="btn btn-lg btn-secondary" type="button">Кнопка LG</button>
+        </div>
+        <div class="demo-row">
+            <span class="demo-row__label">xl</span>
+            <button class="btn btn-xl btn-secondary" type="button">Кнопка XL</button>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 1.2 КНОПКИ — ЦВЕТА -->
+    <!-- ============================================================ -->
+    <section class="demo-section">
+        <h2 class="demo-section__title">1.2 Цвета кнопок</h2>
+        <p class="demo-section__desc">Классы: <span class="demo-tag">.btn-primary</span> <span class="demo-tag">.btn-secondary</span> <span class="demo-tag">.btn-warning</span> <span class="demo-tag">.btn-danger</span> <span class="demo-tag">.btn-success</span> <span class="demo-tag">.btn-light</span> <span class="demo-tag">.btn-gray</span>. <span class="demo-tag">.btn-outline</span> — см. раздел 1.3</p>
+
+        <div class="demo-row">
+            <span class="demo-row__label">primary</span>
+            <button class="btn btn-primary" type="button">Primary</button>
+        </div>
+        <div class="demo-row">
+            <span class="demo-row__label">secondary</span>
+            <button class="btn btn-secondary" type="button">Secondary</button>
+        </div>
+        <div class="demo-row">
+            <span class="demo-row__label">warning</span>
+            <button class="btn btn-warning" type="button">Warning</button>
+        </div>
+        <div class="demo-row">
+            <span class="demo-row__label">danger</span>
+            <button class="btn btn-danger" type="button">Danger</button>
+        </div>
+        <div class="demo-row">
+            <span class="demo-row__label">success</span>
+            <button class="btn btn-success" type="button">Success</button>
+        </div>
+        <div class="demo-row">
+            <span class="demo-row__label">light</span>
+            <button class="btn btn-light" type="button">Light</button>
+        </div>
+        <div class="demo-row">
+            <span class="demo-row__label">gray</span>
+            <button class="btn btn-gray" type="button">Gray</button>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 1.3 КНОПКИ — OUTLINE -->
+    <!-- ============================================================ -->
+    <section class="demo-section">
+        <h2 class="demo-section__title">1.3 Outline (обводка)</h2>
+        <p class="demo-section__desc">Класс <span class="demo-tag">.btn-outline</span> в комбинации с цветами</p>
+
+        <div class="demo-row">
+            <span class="demo-row__label">default</span>
+            <button class="btn btn-outline" type="button">Outline</button>
+        </div>
+        <div class="demo-row">
+            <span class="demo-row__label">primary</span>
+            <button class="btn btn-primary btn-outline" type="button">Primary Outline</button>
+        </div>
+        <div class="demo-row">
+            <span class="demo-row__label">secondary</span>
+            <button class="btn btn-secondary btn-outline" type="button">Secondary Outline</button>
+        </div>
+        <div class="demo-row">
+            <span class="demo-row__label">danger</span>
+            <button class="btn btn-danger btn-outline" type="button">Danger Outline</button>
+        </div>
+        <div class="demo-row">
+            <span class="demo-row__label">light</span>
+            <button class="btn btn-light btn-outline" type="button">Light Outline</button>
+        </div>
+        <div class="demo-row">
+            <span class="demo-row__label">gray</span>
+            <button class="btn btn-gray btn-outline" type="button">Gray Outline</button>
+        </div>
+        <div class="demo-row">
+            <span class="demo-row__label">active outline</span>
+            <button class="btn btn-outline is-active" type="button">Active Outline</button>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 1.4 КНОПКИ — BORDER RADIUS -->
+    <!-- ============================================================ -->
+    <section class="demo-section">
+        <h2 class="demo-section__title">1.4 Скругление (border-radius)</h2>
+        <p class="demo-section__desc">Классы: <span class="demo-tag">.btn-square</span> <span class="demo-tag">.btn-rounded-sm</span> <span class="demo-tag">.btn-rounded</span> <span class="demo-tag">.btn-rounded-lg</span> <span class="demo-tag">.btn-rounded-xl</span> <span class="demo-tag">.btn-pill</span> <span class="demo-tag">.btn-circle</span></p>
+
+        <div class="demo-row">
+            <span class="demo-row__label">square</span>
+            <button class="btn btn-secondary btn-square" type="button">Square</button>
+        </div>
+        <div class="demo-row">
+            <span class="demo-row__label">rounded-sm</span>
+            <button class="btn btn-secondary btn-rounded-sm" type="button">Rounded SM</button>
+        </div>
+        <div class="demo-row">
+            <span class="demo-row__label">rounded (md)</span>
+            <button class="btn btn-secondary btn-rounded" type="button">Rounded</button>
+        </div>
+        <div class="demo-row">
+            <span class="demo-row__label">rounded-lg</span>
+            <button class="btn btn-secondary btn-rounded-lg" type="button">Rounded LG</button>
+        </div>
+        <div class="demo-row">
+            <span class="demo-row__label">rounded-xl</span>
+            <button class="btn btn-secondary btn-rounded-xl" type="button">Rounded XL</button>
+        </div>
+        <div class="demo-row">
+            <span class="demo-row__label">pill</span>
+            <button class="btn btn-secondary btn-pill" type="button">Pill</button>
+        </div>
+        <div class="demo-row">
+            <span class="demo-row__label">circle (md)</span>
+            <button class="btn btn-secondary btn-circle" type="button" aria-label="Круглая">+</button>
+        </div>
+        <div class="demo-row">
+            <span class="demo-row__label">circle (sm)</span>
+            <button class="btn btn-secondary btn-circle btn-sm" type="button" aria-label="Круглая">+</button>
+        </div>
+        <div class="demo-row">
+            <span class="demo-row__label">circle (lg)</span>
+            <button class="btn btn-secondary btn-circle btn-lg" type="button" aria-label="Круглая">+</button>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 1.5 КНОПКИ — МОДИФИКАТОРЫ -->
+    <!-- ============================================================ -->
+    <section class="demo-section">
+        <h2 class="demo-section__title">1.5 Модификаторы</h2>
+
+        <div class="demo-subsection">
+            <h3 class="demo-subsection__title">Блочная (.btn-block)</h3>
+            <div style="max-width: 400px;">
+                <button class="btn btn-secondary btn-block" type="button">Block кнопка (на всю ширину)</button>
+            </div>
+        </div>
+
+        <div class="demo-subsection">
+            <h3 class="demo-subsection__title">Верхний регистр (.btn-upper)</h3>
+            <div class="demo-grid">
+                <button class="btn btn-secondary btn-upper" type="button">Uppercase</button>
+                <button class="btn btn-primary btn-upper" type="button">Primary Uppercase</button>
+            </div>
+        </div>
+
+        <div class="demo-subsection">
+            <h3 class="demo-subsection__title">Блочная + верхний регистр</h3>
+            <div style="max-width: 400px;">
+                <button class="btn btn-secondary btn-upper btn-block" type="button">Block + Upper</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 1.6 КНОПКИ — С ИКОНКОЙ -->
+    <!-- ============================================================ -->
+    <section class="demo-section">
+        <h2 class="demo-section__title">1.6 Кнопки с иконкой</h2>
+        <p class="demo-section__desc">Иконка через <span class="demo-tag">.btn-icon</span> с SVG-спрайтом</p>
+
+        <div class="demo-grid">
+            <button class="btn btn-secondary" type="button">
+                Со стрелкой
+                <span class="btn-icon">
+                    <svg class="icon" fill="currentColor">
+                        <use href="#icon-arrow-up-right"/>
+                    </svg>
+                </span>
+            </button>
+
+            <button class="btn btn-secondary btn-upper" type="button">
+                Перейти
+                <span class="btn-icon">
+                    <svg class="icon" fill="currentColor">
+                        <use href="#icon-arrow-up-right"/>
+                    </svg>
+                </span>
+            </button>
+
+            <button class="btn btn-primary" type="button">
+                С иконкой
+                <span class="btn-icon">
+                    <svg class="icon" fill="currentColor">
+                        <use href="#icon-arrow-up-right"/>
+                    </svg>
+                </span>
+            </button>
+        </div>
+
+        <div style="max-width: 400px; margin-top: 12px;">
+            <button class="btn btn-secondary btn-outline btn-upper btn-block" type="button">
+                Смотреть все
+                <span class="btn-icon">
+                    <svg class="icon" fill="currentColor">
+                        <use href="#icon-arrow-up-right"/>
+                    </svg>
+                </span>
+            </button>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 1.7 КНОПКИ — СОСТОЯНИЯ -->
+    <!-- ============================================================ -->
+    <section class="demo-section">
+        <h2 class="demo-section__title">1.7 Состояния</h2>
+
+        <div class="demo-subsection">
+            <h3 class="demo-subsection__title">Disabled</h3>
+            <div class="demo-grid">
+                <button class="btn btn-secondary" type="button" disabled>Secondary Disabled</button>
+                <button class="btn btn-primary" type="button" disabled>Primary Disabled</button>
+                <button class="btn btn-secondary btn-outline" type="button" disabled>Outline Disabled</button>
+            </div>
+        </div>
+
+        <div class="demo-subsection">
+            <h3 class="demo-subsection__title">Loading (.btn-loading)</h3>
+            <div class="demo-grid">
+                <button class="btn btn-secondary btn-loading" type="button">Loading...</button>
+                <button class="btn btn-primary btn-loading" type="button">Loading...</button>
+                <button class="btn btn-outline btn-loading" type="button">Loading...</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 1.8 КНОПКИ — АНИМАЦИЯ SHIMMER -->
+    <!-- ============================================================ -->
+    <section class="demo-section">
+        <h2 class="demo-section__title">1.8 Анимация перелива (.btn-shimmer)</h2>
+
+        <div class="demo-grid">
+            <button class="btn btn-secondary btn-shimmer" type="button">Shimmer Secondary</button>
+            <button class="btn btn-primary btn-shimmer" type="button">Shimmer Primary</button>
+            <button class="btn btn-warning btn-shimmer btn-lg" type="button">Shimmer Warning LG</button>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 1.9 КНОПКИ — ГРУППА -->
+    <!-- ============================================================ -->
+    <section class="demo-section">
+        <h2 class="demo-section__title">1.9 Группа кнопок (.btn-group)</h2>
+
+        <div class="demo-grid">
+            <div class="btn-group" role="group" aria-label="Группа кнопок">
+                <button class="btn btn-secondary" type="button">Левая</button>
+                <button class="btn btn-secondary" type="button">Центр</button>
+                <button class="btn btn-secondary" type="button">Правая</button>
+            </div>
+        </div>
+        <p style="margin-top: 12px; font-size: 0.75rem; color: #6c757d;">
+            Скругления автоматически применяются только к крайним кнопкам группы.
+        </p>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 1.10 КНОПКИ — КОМБИНИРОВАННЫЕ -->
+    <!-- ============================================================ -->
+    <section class="demo-section">
+        <h2 class="demo-section__title">1.10 Комбинированные классы</h2>
+        <p class="demo-section__desc">Часто используемые комбинации на проекте</p>
+
+        <div class="demo-grid demo-grid--col">
+            <button class="btn btn-secondary btn-outline btn-upper btn-block" type="button">
+                secondary + outline + upper + block
+                <span class="btn-icon">
+                    <svg class="icon" fill="currentColor">
+                        <use href="#icon-arrow-up-right"/>
+                    </svg>
+                </span>
+            </button>
+
+            <button class="btn btn-sm btn-secondary" type="button">sm + secondary (навигация слайдера)</button>
+
+            <button class="btn btn-secondary btn-upper btn-block" type="button">secondary + upper + block</button>
+
+            <button class="btn btn-secondary btn-upper" type="button">
+                secondary + upper + icon
+                <span class="btn-icon">
+                    <svg class="icon" fill="currentColor">
+                        <use href="#icon-arrow-up-right"/>
+                    </svg>
+                </span>
+            </button>
+
+            <button class="btn btn-danger btn-outline btn-rounded-lg" type="button">danger + outline + rounded-lg</button>
+        </div>
+    </section>
+
+    <hr class="demo-separator">
+
+    <!-- ============================================================ -->
+    <!-- 2. ФОРМЫ — FIELD INPUT -->
+    <!-- ============================================================ -->
+    <section class="demo-section">
+        <h2 class="demo-section__title">2.1 Поле ввода (input)</h2>
+
+        <div class="demo-subsection">
+            <h3 class="demo-subsection__title">Базовое поле</h3>
+            <div class="demo-field-wrap">
+                <div class="form-field">
+                    <label class="form-field__label" for="demo-input">Имя</label>
+                    <input class="form-field__input" type="text" id="demo-input" placeholder="Введите имя">
+                    <span class="form-field__help">Подсказка под полем</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-subsection">
+            <h3 class="demo-subsection__title">Disabled</h3>
+            <div class="demo-field-wrap">
+                <div class="form-field">
+                    <label class="form-field__label" for="demo-input-disabled">Заблокировано</label>
+                    <input class="form-field__input" type="text" id="demo-input-disabled" value="Нельзя редактировать" disabled>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-subsection">
+            <h3 class="demo-subsection__title">Readonly</h3>
+            <div class="demo-field-wrap">
+                <div class="form-field">
+                    <label class="form-field__label" for="demo-input-readonly">Только для чтения</label>
+                    <input class="form-field__input form-field__input--readonly" type="text" id="demo-input-readonly" value="Только чтение" readonly>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-subsection">
+            <h3 class="demo-subsection__title">Invalid / Valid</h3>
+            <div class="demo-grid">
+                <div class="demo-field-wrap">
+                    <div class="form-field">
+                        <label class="form-field__label" for="demo-input-invalid">Ошибка</label>
+                        <input class="form-field__input form-field__input--invalid" type="text" id="demo-input-invalid" value="Неверное значение">
+                        <span class="form-field__error form-field__error--visible">Поле заполнено неверно</span>
+                    </div>
+                </div>
+                <div class="demo-field-wrap">
+                    <div class="form-field">
+                        <label class="form-field__label" for="demo-input-valid">Верно</label>
+                        <input class="form-field__input form-field__input--valid" type="text" id="demo-input-valid" value="Правильное значение">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-subsection">
+            <h3 class="demo-subsection__title">Размеры: sm / по умолчанию / lg</h3>
+            <div class="demo-field-wrap">
+                <div class="form-field">
+                    <label class="form-field__label" for="demo-input-sm">Маленькое (sm)</label>
+                    <input class="form-field__input form-field__input--sm" type="text" id="demo-input-sm" placeholder="Small input">
+                </div>
+            </div>
+            <div class="demo-field-wrap">
+                <div class="form-field">
+                    <label class="form-field__label" for="demo-input-def">Стандартное</label>
+                    <input class="form-field__input" type="text" id="demo-input-def" placeholder="Default input">
+                </div>
+            </div>
+            <div class="demo-field-wrap">
+                <div class="form-field">
+                    <label class="form-field__label" for="demo-input-lg">Большое (lg)</label>
+                    <input class="form-field__input form-field__input--lg" type="text" id="demo-input-lg" placeholder="Large input">
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-subsection">
+            <h3 class="demo-subsection__title">Типы полей</h3>
+            <div class="demo-grid demo-grid--col">
+                <div class="demo-field-wrap">
+                    <div class="form-field">
+                        <label class="form-field__label" for="demo-input-email">Email</label>
+                        <input class="form-field__input" type="email" id="demo-input-email" placeholder="email@example.com">
+                    </div>
+                </div>
+                <div class="demo-field-wrap">
+                    <div class="form-field">
+                        <label class="form-field__label" for="demo-input-tel">Телефон</label>
+                        <input class="form-field__input" type="tel" id="demo-input-tel" placeholder="+375 (__) ___-__-__">
+                    </div>
+                </div>
+                <div class="demo-field-wrap">
+                    <div class="form-field">
+                        <label class="form-field__label" for="demo-input-search">Поиск</label>
+                        <input class="form-field__input" type="search" id="demo-input-search" placeholder="Поиск...">
+                    </div>
+                </div>
+                <div class="demo-field-wrap">
+                    <div class="form-field">
+                        <label class="form-field__label" for="demo-input-number">Число</label>
+                        <input class="form-field__input" type="number" id="demo-input-number" value="42" min="0" max="100">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 2.2 ФОРМЫ — TEXTAREA -->
+    <!-- ============================================================ -->
+    <section class="demo-section">
+        <h2 class="demo-section__title">2.2 Textarea</h2>
+
+        <div class="demo-grid demo-grid--col">
+            <div class="demo-field-wrap" style="max-width: 480px;">
+                <div class="form-field">
+                    <label class="form-field__label" for="demo-textarea">Сообщение</label>
+                    <textarea class="form-field__textarea" id="demo-textarea" rows="4" placeholder="Введите текст..."></textarea>
+                </div>
+            </div>
+
+            <div class="demo-field-wrap" style="max-width: 480px;">
+                <div class="form-field">
+                    <label class="form-field__label" for="demo-textarea-disabled">Заблокировано</label>
+                    <textarea class="form-field__textarea" id="demo-textarea-disabled" rows="4" disabled>Этот текст нельзя редактировать</textarea>
+                </div>
+            </div>
+
+            <div class="demo-field-wrap" style="max-width: 480px;">
+                <div class="form-field">
+                    <label class="form-field__label" for="demo-textarea-invalid">Ошибка</label>
+                    <textarea class="form-field__textarea form-field__textarea--invalid" id="demo-textarea-invalid" rows="4">Неверные данные</textarea>
+                    <span class="form-field__error form-field__error--visible">Текст слишком короткий</span>
+                </div>
+            </div>
+
+            <div class="demo-field-wrap" style="max-width: 480px;">
+                <div class="form-field">
+                    <label class="form-field__label" for="demo-textarea-valid">Верно</label>
+                    <textarea class="form-field__textarea form-field__textarea--valid" id="demo-textarea-valid" rows="4">Всё отлично</textarea>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 2.3 ФОРМЫ — SELECT -->
+    <!-- ============================================================ -->
+    <section class="demo-section">
+        <h2 class="demo-section__title">2.3 Select</h2>
+
+        <div class="demo-grid demo-grid--col">
+            <div class="demo-field-wrap">
+                <div class="form-field">
+                    <label class="form-field__label" for="demo-select">Город</label>
+                    <select class="form-field__select" id="demo-select">
+                        <option value="">Выберите город</option>
+                        <option value="minsk">Минск</option>
+                        <option value="grodno">Гродно</option>
+                        <option value="brest">Брест</option>
+                        <option value="gomel">Гомель</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="demo-field-wrap">
+                <div class="form-field">
+                    <label class="form-field__label" for="demo-select-disabled">Заблокировано</label>
+                    <select class="form-field__select" id="demo-select-disabled" disabled>
+                        <option value="">Выберите город</option>
+                        <option value="minsk" selected>Минск</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="demo-field-wrap">
+                <div class="form-field">
+                    <label class="form-field__label" for="demo-select-invalid">Ошибка</label>
+                    <select class="form-field__select form-field__select--invalid" id="demo-select-invalid">
+                        <option value="">Не выбрано</option>
+                        <option value="minsk">Минск</option>
+                    </select>
+                    <span class="form-field__error form-field__error--visible">Обязательное поле</span>
+                </div>
+            </div>
+
+            <div class="demo-field-wrap">
+                <div class="form-field">
+                    <label class="form-field__label" for="demo-select-valid">Верно</label>
+                    <select class="form-field__select form-field__select--valid" id="demo-select-valid">
+                        <option value="" disabled>Выберите</option>
+                        <option value="minsk" selected>Минск</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 2.4 ФОРМЫ — ЧЕКБОКСЫ -->
+    <!-- ============================================================ -->
+    <section class="demo-section">
+        <h2 class="demo-section__title">2.4 Чекбоксы</h2>
+
+        <div class="demo-subsection">
+            <h3 class="demo-subsection__title">Одиночный чекбокс</h3>
+            <div class="checkbox">
+                <input class="checkbox__input" type="checkbox" id="demo-checkbox">
+                <label class="checkbox__label" for="demo-checkbox">Согласен(а) с политикой обработки персональных данных</label>
+            </div>
+        </div>
+
+        <div class="demo-subsection">
+            <h3 class="demo-subsection__title">Отмеченный (checked)</h3>
+            <div class="checkbox">
+                <input class="checkbox__input" type="checkbox" id="demo-checkbox-checked" checked>
+                <label class="checkbox__label" for="demo-checkbox-checked">Уже согласен(а)</label>
+            </div>
+        </div>
+
+        <div class="demo-subsection">
+            <h3 class="demo-subsection__title">Заблокированный (disabled)</h3>
+            <div class="checkbox">
+                <input class="checkbox__input" type="checkbox" id="demo-checkbox-disabled" disabled>
+                <label class="checkbox__label" for="demo-checkbox-disabled">Недоступная опция</label>
+            </div>
+        </div>
+
+        <div class="demo-subsection">
+            <h3 class="demo-subsection__title">Группа чекбоксов (вертикальная)</h3>
+            <div class="checkbox-group">
+                <div class="checkbox">
+                    <input class="checkbox__input" type="checkbox" id="demo-cb-1" checked>
+                    <label class="checkbox__label" for="demo-cb-1">Доставка</label>
+                </div>
+                <div class="checkbox">
+                    <input class="checkbox__input" type="checkbox" id="demo-cb-2">
+                    <label class="checkbox__label" for="demo-cb-2">Самовывоз</label>
+                </div>
+                <div class="checkbox">
+                    <input class="checkbox__input" type="checkbox" id="demo-cb-3">
+                    <label class="checkbox__label" for="demo-cb-3">Разгрузка</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-subsection">
+            <h3 class="demo-subsection__title">Группа чекбоксов (inline)</h3>
+            <div class="checkbox-group checkbox-group--inline">
+                <div class="checkbox">
+                    <input class="checkbox__input" type="checkbox" id="demo-cb-inline-1" checked>
+                    <label class="checkbox__label" for="demo-cb-inline-1">Кровля</label>
+                </div>
+                <div class="checkbox">
+                    <input class="checkbox__input" type="checkbox" id="demo-cb-inline-2">
+                    <label class="checkbox__label" for="demo-cb-inline-2">Утепление</label>
+                </div>
+                <div class="checkbox">
+                    <input class="checkbox__input" type="checkbox" id="demo-cb-inline-3">
+                    <label class="checkbox__label" for="demo-cb-inline-3">Отделка</label>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 2.5 ФОРМЫ — РАДИО-КНОПКИ -->
+    <!-- ============================================================ -->
+    <section class="demo-section">
+        <h2 class="demo-section__title">2.5 Радио-кнопки</h2>
+
+        <div class="demo-subsection">
+            <h3 class="demo-subsection__title">Одиночная радио-кнопка</h3>
+            <div class="radio">
+                <input class="radio__input" type="radio" name="demo-radio-single" id="demo-radio-1" checked>
+                <label class="radio__label" for="demo-radio-1">Вариант 1</label>
+            </div>
+            <div class="radio">
+                <input class="radio__input" type="radio" name="demo-radio-single" id="demo-radio-2">
+                <label class="radio__label" for="demo-radio-2">Вариант 2</label>
+            </div>
+        </div>
+
+        <div class="demo-subsection">
+            <h3 class="demo-subsection__title">Disabled</h3>
+            <div class="radio">
+                <input class="radio__input" type="radio" name="demo-radio-disabled" id="demo-radio-disabled" disabled>
+                <label class="radio__label" for="demo-radio-disabled">Недоступный вариант</label>
+            </div>
+        </div>
+
+        <div class="demo-subsection">
+            <h3 class="demo-subsection__title">Группа радио-кнопок</h3>
+            <div class="radio-group">
+                <div class="radio">
+                    <input class="radio__input" type="radio" name="demo-radio-group" id="demo-rg-1" checked>
+                    <label class="radio__label" for="demo-rg-1">Доставка курьером</label>
+                </div>
+                <div class="radio">
+                    <input class="radio__input" type="radio" name="demo-radio-group" id="demo-rg-2">
+                    <label class="radio__label" for="demo-rg-2">Самовывоз со склада</label>
+                </div>
+                <div class="radio">
+                    <input class="radio__input" type="radio" name="demo-radio-group" id="demo-rg-3">
+                    <label class="radio__label" for="demo-rg-3">Почтой</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-subsection">
+            <h3 class="demo-subsection__title">Группа радио-кнопок (inline)</h3>
+            <div class="radio-group radio-group--inline">
+                <div class="radio">
+                    <input class="radio__input" type="radio" name="demo-radio-inline" id="demo-ri-1" checked>
+                    <label class="radio__label" for="demo-ri-1">Наличные</label>
+                </div>
+                <div class="radio">
+                    <input class="radio__input" type="radio" name="demo-radio-inline" id="demo-ri-2">
+                    <label class="radio__label" for="demo-ri-2">Карта</label>
+                </div>
+                <div class="radio">
+                    <input class="radio__input" type="radio" name="demo-radio-inline" id="demo-ri-3">
+                    <label class="radio__label" for="demo-ri-3">Рассрочка</label>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 2.6 ФОРМЫ — FORM-GRID -->
+    <!-- ============================================================ -->
+    <section class="demo-section">
+        <h2 class="demo-section__title">2.6 Сетка формы (.form-grid)</h2>
+        <p class="demo-section__desc">Двухколоночная сетка на десктопе, одноколоночная на мобильных</p>
+
+        <div class="form-grid">
+            <div class="form-field">
+                <label class="form-field__label" for="demo-grid-name">Имя</label>
+                <input class="form-field__input" type="text" id="demo-grid-name" placeholder="Ваше имя">
+            </div>
+            <div class="form-field">
+                <label class="form-field__label" for="demo-grid-phone">Телефон</label>
+                <input class="form-field__input" type="tel" id="demo-grid-phone" placeholder="+375 (__) ___-__-__">
+            </div>
+            <div class="form-field">
+                <label class="form-field__label" for="demo-grid-email">Email</label>
+                <input class="form-field__input" type="email" id="demo-grid-email" placeholder="email@example.com">
+            </div>
+            <div class="form-field">
+                <label class="form-field__label" for="demo-grid-city">Город</label>
+                <select class="form-field__select" id="demo-grid-city">
+                    <option value="">Выберите город</option>
+                    <option value="minsk">Минск</option>
+                    <option value="grodno">Гродно</option>
+                    <option value="brest">Брест</option>
+                </select>
+            </div>
+            <div class="form-field" style="grid-column: 1 / -1;">
+                <label class="form-field__label" for="demo-grid-message">Сообщение</label>
+                <textarea class="form-field__textarea" id="demo-grid-message" rows="4" placeholder="Ваше сообщение..."></textarea>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 3. КНОПКИ В КОНТЕКСТЕ (реальные сценарии) -->
+    <!-- ============================================================ -->
+    <section class="demo-section">
+        <h2 class="demo-section__title">3. Кнопки в реальном контексте</h2>
+        <p class="demo-section__desc">Кнопки в том виде, в котором они используются на страницах сайта</p>
+
+        <div class="demo-subsection">
+            <h3 class="demo-subsection__title">«В корзину» (карточка товара)</h3>
+            <button class="btn btn-secondary btn-upper btn-block" type="button">В корзину</button>
+        </div>
+
+        <div class="demo-subsection">
+            <h3 class="demo-subsection__title">«Перейти» с иконкой (каталог)</h3>
+            <button class="btn btn-secondary btn-upper" type="button">
+                Перейти
+                <span class="btn-icon">
+                    <svg class="icon" fill="currentColor">
+                        <use href="#icon-arrow-up-right"/>
+                    </svg>
+                </span>
+            </button>
+        </div>
+
+        <div class="demo-subsection">
+            <h3 class="demo-subsection__title">Навигация слайдера (стрелки)</h3>
+            <div class="demo-grid">
+                <button class="btn btn-sm btn-secondary" type="button" aria-label="Предыдущий">
+                    <span class="btn-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256">
+                            <path d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z"></path>
+                        </svg>
+                    </span>
+                </button>
+                <button class="btn btn-sm btn-secondary" type="button" aria-label="Следующий">
+                    <span class="btn-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256">
+                            <path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path>
+                        </svg>
+                    </span>
+                </button>
+            </div>
+        </div>
+
+        <div class="demo-subsection">
+            <h3 class="demo-subsection__title">«Смотреть все» (футер секции)</h3>
+            <div style="max-width: 400px;">
+                <a class="btn btn-secondary btn-outline btn-upper btn-block" href="#">
+                    Смотреть все
+                    <span class="btn-icon">
+                        <svg class="icon" fill="currentColor">
+                            <use href="#icon-arrow-up-right"/>
+                        </svg>
+                    </span>
+                </a>
+            </div>
+        </div>
+
+        <div class="demo-subsection">
+            <h3 class="demo-subsection__title">Кнопка отправки формы</h3>
+            <button class="btn btn-secondary btn-upper btn-block" type="submit">Отправить</button>
+        </div>
+
+        <div class="demo-subsection">
+            <h3 class="demo-subsection__title">Кнопка как ссылка (тег a)</h3>
+            <a class="btn btn-secondary btn-upper" href="#">
+                Ссылка-кнопка
+                <span class="btn-icon">
+                    <svg class="icon" fill="currentColor">
+                        <use href="#icon-arrow-up-right"/>
+                    </svg>
+                </span>
+            </a>
+        </div>
+    </section>
+
+    <hr class="demo-separator">
+
+    <!-- ============================================================ -->
+    <!-- 4. СРАВНЕНИЕ ВЫСОТ КНОПОК И ПОЛЕЙ -->
+    <!-- ============================================================ -->
+    <section class="demo-section">
+        <h2 class="demo-section__title">4. Сравнение высот: кнопки ↔ поля форм</h2>
+        <p class="demo-section__desc">Кнопки и поля ввода имеют одинаковую фиксированную высоту (<code>height</code>), что гарантирует их визуальное соответствие в одной строке</p>
+
+        <div class="demo-compare">
+
+            <h3 class="demo-subsection__title">SM (2rem / 32px)</h3>
+            <div class="demo-compare__row">
+                <span class="demo-compare__label">btn-sm</span>
+                <div class="demo-compare__btn"><button class="btn btn-sm btn-secondary" type="button">Кнопка SM</button></div>
+                <span class="demo-compare__height">32px</span>
+            </div>
+            <div class="demo-compare__row">
+                <span class="demo-compare__label">input</span>
+                <div class="demo-compare__input"><input class="form-field__input form-field__input--sm" type="text" value="Поле SM" readonly></div>
+                <span class="demo-compare__height">32px</span>
+            </div>
+            <div class="demo-compare__row">
+                <span class="demo-compare__label">рядом</span>
+                <button class="btn btn-sm btn-secondary" type="button">Кнопка SM</button>
+                <input class="form-field__input form-field__input--sm" type="text" value="Поле SM" readonly style="width: 200px;">
+            </div>
+
+            <div class="demo-compare__separator"></div>
+
+            <h3 class="demo-subsection__title">MD / default (2.5rem / 40px)</h3>
+            <div class="demo-compare__row">
+                <span class="demo-compare__label">.btn</span>
+                <div class="demo-compare__btn"><button class="btn btn-secondary" type="button">Кнопка (default)</button></div>
+                <span class="demo-compare__height">40px</span>
+            </div>
+            <div class="demo-compare__row">
+                <span class="demo-compare__label">.btn-md</span>
+                <div class="demo-compare__btn"><button class="btn btn-md btn-secondary" type="button">Кнопка MD</button></div>
+                <span class="demo-compare__height">40px</span>
+            </div>
+            <div class="demo-compare__row">
+                <span class="demo-compare__label">input</span>
+                <div class="demo-compare__input"><input class="form-field__input" type="text" value="Поле (default)" readonly></div>
+                <span class="demo-compare__height">40px</span>
+            </div>
+            <div class="demo-compare__row">
+                <span class="demo-compare__label">рядом</span>
+                <button class="btn btn-secondary" type="button">Кнопка</button>
+                <input class="form-field__input" type="text" value="Поле" readonly style="width: 200px;">
+            </div>
+
+            <div class="demo-compare__separator"></div>
+
+            <h3 class="demo-subsection__title">LG (3rem / 48px)</h3>
+            <div class="demo-compare__row">
+                <span class="demo-compare__label">btn-lg</span>
+                <div class="demo-compare__btn"><button class="btn btn-lg btn-secondary" type="button">Кнопка LG</button></div>
+                <span class="demo-compare__height">48px</span>
+            </div>
+            <div class="demo-compare__row">
+                <span class="demo-compare__label">input</span>
+                <div class="demo-compare__input"><input class="form-field__input form-field__input--lg" type="text" value="Поле LG" readonly></div>
+                <span class="demo-compare__height">48px</span>
+            </div>
+            <div class="demo-compare__row">
+                <span class="demo-compare__label">рядом</span>
+                <button class="btn btn-lg btn-secondary" type="button">Кнопка LG</button>
+                <input class="form-field__input form-field__input--lg" type="text" value="Поле LG" readonly style="width: 200px;">
+            </div>
+
+            <div class="demo-compare__separator"></div>
+
+            <h3 class="demo-subsection__title">В одной строке: SM + MD + LG</h3>
+            <div class="demo-compare__row">
+                <button class="btn btn-sm btn-secondary" type="button">SM</button>
+                <input class="form-field__input form-field__input--sm" type="text" value="SM" readonly style="width: 120px;">
+                <button class="btn btn-md btn-secondary" type="button">MD</button>
+                <input class="form-field__input" type="text" value="MD" readonly style="width: 120px;">
+                <button class="btn btn-lg btn-secondary" type="button">LG</button>
+                <input class="form-field__input form-field__input--lg" type="text" value="LG" readonly style="width: 120px;">
+            </div>
+
+            <div class="demo-compare__separator"></div>
+
+            <h3 class="demo-subsection__title">Кнопка + Select (одинаковая высота)</h3>
+            <div class="demo-compare__row">
+                <button class="btn btn-md btn-secondary" type="button">Поиск</button>
+                <select class="form-field__select" style="width: 200px;">
+                    <option value="">Все категории</option>
+                    <option value="1">Кровля</option>
+                    <option value="2">Утепление</option>
+                </select>
+            </div>
+
+        </div>
+    </section>
+
+</div>
+
+<script type="module" src="../assets/scripts/pages/ui-kit-forms"></script>
+</body>
+</html>

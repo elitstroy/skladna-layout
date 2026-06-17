@@ -1,0 +1,105 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+// =============================================================================
+// Catalog — Секция каталога (табы + группы товаров)
+// =============================================================================
+
+.catalog {
+  margin-bottom: $spacing-2xl;
+
+  &__container {
+    position: relative;
+  }
+
+  &__mascot {
+    display: none;
+    position: absolute;
+    top: -75px;
+    right: 90px;
+  }
+
+  &__head {
+    margin-bottom: $spacing-md;
+  }
+
+  &__title {
+    font-size: $font-size-2xl;
+    margin-bottom: $spacing-2xs;
+    text-transform: uppercase;
+    background-image: url("../../images/title-blob.png");
+    background-repeat: no-repeat;
+
+    @include respond-to($breakpoint-desktop) {
+      font-size: $font-size-3xl;
+    }
+  }
+
+  &__body {
+    margin-bottom: $spacing-md;
+  }
+
+  &__group {
+    background-color: $color-white;
+  }
+
+  &__group-title {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-medium;
+    padding: $spacing-xs $spacing-md;
+    text-transform: uppercase;
+    border-bottom: 1px solid $color-gray-200;
+  }
+
+  &__list {
+    @include list-reset;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+
+  &__footer {
+    max-width: 360px;
+    margin: 0 auto;
+  }
+}
+
+@include respond-to($breakpoint-desktop) {
+  .catalog {
+    margin-bottom: $spacing-5xl;
+
+    &__mascot {
+      display: block;
+    }
+
+    &__subtitle {
+      font-size: $font-size-base;
+    }
+
+    &__body {
+      margin-bottom: $spacing-lg;
+    }
+
+    &__group-title {
+      font-size: $font-size-xl;
+      padding: $spacing-sm $spacing-lg;
+    }
+
+    &__tabs {
+      margin-bottom: $spacing-lg;
+    }
+
+    &__list {
+      flex-direction: row;
+    }
+
+    &__item {
+      flex-basis: 33.33%;
+    }
+
+    &__footer {
+      max-width: 320px;
+      margin: 0 auto;
+    }
+  }
+}

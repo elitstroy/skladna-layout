@@ -1,0 +1,83 @@
+@use 'sass:map';
+@use 'variables' as *;
+
+// =============================================================================
+// Mixins
+// =============================================================================
+
+/// Адаптивный брейкпоинт (mobile-first)
+/// @param {String} $breakpoint - Название брейкпоинта из $breakpoints или значение в px
+@mixin respond-to($breakpoint) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    @media (min-width: map.get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @media (min-width: $breakpoint) {
+      @content;
+    }
+  }
+}
+
+/// Контейнер с максимальной шириной
+@mixin container() {
+  max-width: $container-max-width;
+  margin-inline: auto;
+  padding-inline: $spacing-xs;
+
+  @include respond-to($breakpoint-desktop) {
+    padding-inline: $spacing-md;
+  }
+}
+
+/// Обрезка текста (ellipsis)
+@mixin text-overflow() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/// Сброс списка
+@mixin list-reset() {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/// Flex-центрирование
+@mixin flex-center() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/// Абсолютное центрирование
+@mixin absolute-center() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/// Визуально скрытый, но доступный для скринридеров
+@mixin visually-hidden() {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/// Плавная прокрутка
+@mixin smooth-scroll() {
+  scroll-behavior: smooth;
+}

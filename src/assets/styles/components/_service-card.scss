@@ -1,0 +1,135 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+// =============================================================================
+// Service Card — Карточка услуги
+// =============================================================================
+
+.service-card {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  background-color: $color-white;
+  padding: $spacing-md;
+  height: 100%;
+  text-decoration: none;
+  transition: transform $transition-fast;
+
+  &:hover {
+    transform: scale(1.01);
+  }
+
+  &--highlight {
+    .service-card__image-wrap {
+      max-width: 100%;
+      margin: $spacing-lg 0;
+    }
+  }
+
+  &__more {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__image-wrap {
+    max-width: 96px;
+    overflow: hidden;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  &__body {
+  }
+
+  &__title {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-medium;
+    margin-bottom: $spacing-sm;
+    text-transform: uppercase;
+
+    &--badge {
+    }
+  }
+
+  &__badge {
+    display: inline-block;
+    padding-inline: $spacing-2xs;
+    background-color: $color-primary;
+  }
+
+  &__list {
+    @include list-reset;
+
+    &-item {
+      position: relative;
+      line-height: $line-height-normal;
+      padding-left: $spacing-md;
+      margin-bottom: $spacing-sm;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 6px;
+        width: 8px;
+        height: 8px;
+        background-color: $color-secondary-dark;
+      }
+    }
+  }
+
+  &__text {
+    font-size: 14px;
+    line-height: 1.6;
+
+    &--bold {
+      font-weight: 600;
+    }
+  }
+}
+
+@include respond-to($breakpoint-desktop) {
+  .service-card {
+    padding: $spacing-lg;
+
+    &--highlight {
+      display: flex;
+      align-items: center;
+      gap: $spacing-xl;
+
+      .service-card__body {
+        flex-basis: 50%;
+      }
+
+      .service-card__image-wrap {
+        flex-basis: 50%;
+        margin: 0;
+      }
+    }
+
+    &__title {
+      font-size: $font-size-xl;
+    }
+
+    &__list {
+      &-item {
+        font-size: $font-size-base;
+      }
+    }
+
+    &__text {
+      font-size: $font-size-base;
+    }
+  }
+}

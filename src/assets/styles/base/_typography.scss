@@ -1,0 +1,62 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// =============================================================================
+// Typography
+// =============================================================================
+
+h1, .h1 {
+  font-family: $font-family-base;
+  font-size: $font-size-3xl;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-snug;
+
+  @include respond-to($breakpoint-desktop) {
+    font-size: $font-size-4xl;
+  }
+}
+
+h2, .h2 {
+  font-family: $font-family-base;
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-snug;
+
+  @include respond-to($breakpoint-desktop) {
+    font-size: $font-size-3xl;
+  }
+}
+
+h3, .h3 {
+  font-family: $font-family-base;
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-snug;
+
+  @include respond-to($breakpoint-desktop) {
+    font-size: $font-size-2xl;
+  }
+}
+
+h4, .h4 {
+  font-family: $font-family-base;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-snug;
+
+  @include respond-to($breakpoint-desktop) {
+    font-size: $font-size-xl;
+  }
+}
+
+p {
+  margin-bottom: $spacing-xs;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+address {
+  font-style: normal;
+}

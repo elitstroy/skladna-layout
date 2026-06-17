@@ -1,0 +1,179 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+// =============================================================================
+// Hero — Секция главного баннера + преимущества
+// =============================================================================
+
+.hero {
+  margin-bottom: $spacing-2xl;
+  position: relative;
+
+  &__decor {
+    width: 100%;
+    display: none;
+    position: absolute;
+    top: -120px;
+    left: 0;
+
+    /*
+    width: 1369px;
+    height: 549px;
+    background: rgba(200, 230, 0, 0.3); !* #C8E600 с opacity 0.3 *!
+    clip-path: path("M490.5 168.5C220.1 202.5 20.5 467 0 548.5C47.5 445 354.623 316.789 589.5 431C826 546 1146 577.5 1432 413.5V0C1383 0 1406.4 100.7 1206 213.5C955.5 354.5 828.5 126 490.5 168.5Z");
+    */
+
+    z-index: $z-negative;
+  }
+
+  &__title-wrapper {
+    flex: 1;
+    position: relative;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__title {
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+
+    span {
+      background-color: $color-primary;
+    }
+
+    /*&::after {
+      content: '';
+      background-color: $color-primary;
+      position: absolute;
+      top: 0;
+      left: -4px;
+      width: 200px;
+      height: 57px;
+      z-index: -1;
+
+      clip-path: polygon(0% 10%, 100% 0%, 100% 100%, 0% 90%);
+    }*/
+  }
+
+  /*&__title-icon {
+    position: absolute;
+    top: -6px;
+    left: 190px;
+    display: inline-block;
+  }*/
+
+  &__image-wrapper {
+    position: relative;
+    flex: 1;
+    padding: $spacing-xs;
+    margin: $spacing-lg auto;
+    max-width: 450px;
+  }
+
+  &__image-decor {
+    position: absolute;
+    border: 1px solid $color-gray-900;
+    inset: $spacing-xs;
+    z-index: -1;
+    transform: rotate(3deg);
+  }
+
+  &__picture {
+    display: block;
+    overflow: hidden;
+    position: relative;
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  &__badge {
+    position: absolute;
+    left: $spacing-xs;
+    right: $spacing-xs;
+    bottom: $spacing-xs;
+    display: flex;
+    align-items: flex-start;
+    max-width: 250px;
+    gap: $spacing-xs;
+    padding: $spacing-xs;
+    background-color: $color-primary;
+  }
+
+  &__badge-icon {
+    width: 21px;
+    height: 21px;
+    flex-shrink: 0;
+    position: relative;
+    top: 3px;
+  }
+
+  &__advantages {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: $spacing-xs;
+  }
+}
+
+@include respond-to($breakpoint-desktop) {
+  .hero {
+    margin-bottom: $spacing-6xl;
+
+    &__container {
+      display: grid;
+      gap: $spacing-xl;
+      grid-template-columns: 8fr 5fr;
+      grid-template-areas:
+      "a b"
+      "c b";
+      align-items: start;
+    }
+
+    &__decor {
+      display: block;
+    }
+
+    &__title-wrapper {
+      grid-area: a;
+      margin-bottom: 0;
+    }
+
+    &__title {
+      max-width: none;
+
+      &::after {
+        width: 630px;
+      }
+    }
+
+    .hero__title-icon {
+      left: 620px;
+    }
+
+    &__image-wrapper {
+      grid-area: b;
+      margin: 0;
+    }
+
+    &__image-decor {
+      border-width: 2px;
+    }
+
+    &__badge {
+      left: $spacing-sm;
+      right: $spacing-sm;
+      bottom: $spacing-sm;
+    }
+
+    &__advantages {
+      grid-area: c;
+    }
+
+    &__title {
+      font-size: $font-size-5xl;
+    }
+  }
+}

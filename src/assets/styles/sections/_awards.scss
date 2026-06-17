@@ -1,0 +1,67 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+// =============================================================================
+// Awards — Секция «Благодарственные письма»
+// =============================================================================
+.awards {
+  margin-bottom: $spacing-2xl;
+
+  &__head {
+    margin-bottom: $spacing-md;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-size: $font-size-2xl;
+    margin-bottom: $spacing-2xs;
+    text-transform: uppercase;
+    background-image: url("../../images/title-blob.png");
+    background-repeat: no-repeat;
+
+    @include respond-to($breakpoint-desktop) {
+      font-size: $font-size-3xl;
+    }
+  }
+
+  &__body {
+    position: relative;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__mascot {
+    position: absolute;
+    top: 0;
+    left: -90px;
+    z-index: $z-overlay;
+    max-width: 260px;
+
+    &-image {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+  }
+
+  &__slider {
+    flex: 1;
+  }
+}
+
+@include respond-to($breakpoint-desktop) {
+  .awards {
+    margin-bottom: $spacing-5xl;
+
+    &__mascot {
+      left: 0;
+      max-width: 300px;
+
+      &-image {
+      }
+    }
+  }
+}

@@ -1,0 +1,79 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+// =============================================================================
+// Slider — Обёртка слайдера (Swiper)
+// =============================================================================
+
+.slider {
+  position: relative;
+  overflow: hidden;
+
+  &__list {
+    @include list-reset;
+  }
+
+  &__item {
+    height: auto !important;
+  }
+
+  &__navigation {
+    display: none;
+    gap: $spacing-xs;
+
+    .swiper-button-prev,
+    .swiper-button-next {
+      position: static !important;
+      width: 54px !important;
+      height: $control-height-md !important;
+      padding: 0 $btn-padding-x-md !important;
+      margin: 0 !important;
+    }
+
+    .swiper-button-disabled {
+      color: $color-gray-400 !important;
+      border-color: $color-gray-400 !important;
+      background-color: transparent !important;
+      opacity: .6 !important;
+    }
+  }
+
+  &__pagination {
+    margin-top: $spacing-md;
+    display: flex;
+    justify-content: center;
+    gap: $spacing-xs;
+    align-items: center;
+    position: static !important;
+    height: 12px;
+
+    // Стилизация Swiper-пагинации внутри контекста .slider
+    .swiper-pagination-bullet {
+      width: 8px;
+      height: 8px;
+      border-radius: $radius-full;
+      background-color: $color-gray-300;
+      opacity: 1;
+      margin: 0 !important;
+      transition: background-color $transition-base, width $transition-base, height $transition-base;
+
+      &-active {
+        width: 12px;
+        height: 12px;
+        background-color: $color-secondary;
+      }
+    }
+  }
+}
+
+@include respond-to($breakpoint-desktop) {
+  .slider {
+    &__navigation {
+      display: flex;
+    }
+
+    &__pagination {
+      display: none;
+    }
+  }
+}

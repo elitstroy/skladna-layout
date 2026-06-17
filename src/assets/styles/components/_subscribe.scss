@@ -1,0 +1,58 @@
+@use 'sass:color';
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+// =============================================================================
+// Subscribe — Подписка на рассылку (в футере)
+// =============================================================================
+
+.subscribe {
+  background-image: url("../../images/pattern.png");
+  background-repeat: repeat;
+  background-color: $color-primary;
+  padding: $spacing-md;
+
+  &__head {
+    margin-bottom: $spacing-md;
+  }
+
+  &__title {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__text {
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+@include respond-to($breakpoint-desktop) {
+  .subscribe {
+    padding: $spacing-lg;
+
+    &__form {
+      display: grid;
+      grid-template-areas:
+      "a a c"
+      "b b b";
+    }
+
+    &__field {
+      grid-area: a;
+    }
+
+    &__agree {
+      grid-area: b;
+    }
+
+    &__submit {
+      grid-area: c;
+    }
+  }
+}

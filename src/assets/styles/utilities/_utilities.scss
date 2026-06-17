@@ -1,0 +1,44 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+// =============================================================================
+// Utilities — Вспомогательные классы
+// =============================================================================
+
+// Скрытый, но доступный для скринридеров
+.sr-only {
+  @include visually-hidden;
+}
+
+// Скрытый на всех экранах
+.hidden {
+  display: none !important;
+}
+
+// Скрытый на мобильных
+.hidden-mobile {
+  @include respond-to($breakpoint-desktop) {
+    display: block !important;
+  }
+
+  display: none !important;
+}
+
+// Скрытый на десктопе
+.hidden-desktop {
+  display: block !important;
+
+  @include respond-to($breakpoint-desktop) {
+    display: none !important;
+  }
+}
+
+// Текст по центру
+.text-center {
+  text-align: center;
+}
+
+// Обрезка текста
+.text-ellipsis {
+  @include text-overflow;
+}

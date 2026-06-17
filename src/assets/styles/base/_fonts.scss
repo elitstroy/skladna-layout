@@ -1,0 +1,17 @@
+// =============================================================================
+// Fonts — @font-face declarations
+// =============================================================================
+
+@font-face {
+  font-display: swap;
+  font-family: "nbrb";
+  font-stretch: 100%;
+  font-style: normal;
+  font-weight: 400;
+  src: url("../../fonts/nbrb.woff2") format("woff2"),
+       url("../../fonts/nbrb.woff") format("woff");
+  unicode-range: U+0183;
+}
+
+// Open Sans — подключается через Google Fonts (<link> в HTML)
+// @font-face declarations не нужны, шрифт загружается с fonts.googleapis.com

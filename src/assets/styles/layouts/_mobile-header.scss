@@ -1,0 +1,108 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+// =============================================================================
+// Header — Шапка сайта
+// =============================================================================
+
+.mobile-header {
+  background-color: $color-white;
+
+  &__top {
+    background-color: $color-primary;
+    padding: $spacing-2xs 0;
+  }
+
+  &__row {
+    display: flex;
+  }
+
+  &__logo {
+    flex-shrink: 0;
+    position: relative;
+    margin-right: $spacing-sm;
+
+    .logo__image {
+      width: 90px;
+      height: auto;
+      position: relative;
+      top: 3px;
+    }
+  }
+
+  &__logo::after {
+    background-color: $color-black;
+    content: "";
+    height: 18px;
+    position: absolute;
+    right: -7px;
+    top: 3px;
+    width: 1px;
+  }
+
+  &__city {
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-xs;
+    flex-shrink: 0;
+  }
+
+  &__city-name {
+    border-bottom: 1px dotted;
+  }
+
+  &__phone {
+    flex-shrink: 0;
+    margin-left: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-2xs;
+    text-wrap: nowrap;
+    transition: color $transition-base, text-decoration-color $transition-base;
+  }
+
+  &__phone-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  &__phone-number {
+    border-bottom: 1px dotted;
+  }
+
+  &__middle {
+    background-color: $color-primary;
+    padding: $spacing-xs 0;
+    border-radius: 0 0 $spacing-xs $spacing-xs;
+  }
+
+  &__search {
+    flex: 1;
+  }
+
+  &__search-button {
+    height: 100%;
+    position: absolute;
+    left: $spacing-sm;
+  }
+
+  &__search-icon {
+    color: $color-gray-600;
+    width: 20px;
+    height: 20px;
+  }
+
+  &__search-input {
+    padding-left: 45px;
+
+    &::placeholder {
+      color: $color-gray-600;
+    }
+  }
+}
+
+@include respond-to($breakpoint-desktop) {
+  .mobile-header {
+    display: none;
+  }
+}

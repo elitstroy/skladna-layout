@@ -1,0 +1,56 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+// =============================================================================
+// Video — Видеоплеер с превью
+// =============================================================================
+
+.video {
+  padding: $spacing-xs;
+  position: relative;
+
+  &__decor {
+    position: absolute;
+    border: 1px solid;
+    inset: $spacing-xs;
+    z-index: -1;
+    transform: rotate(3deg);
+  }
+
+  &__play-btn {
+    position: relative;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    border: none;
+    background: none;
+    padding: 0;
+  }
+
+  &__preview {
+    width: 100%;
+    height: 340px;
+    object-fit: cover;
+  }
+
+  &__play-icon {
+    @include absolute-center;
+    @include flex-center;
+
+    width: 64px;
+    height: 64px;
+    border-radius: $radius-full;
+    border: 2px solid $color-white;
+    color: $color-white;
+    font-size: $font-size-xl;
+  }
+}
+
+@include respond-to($breakpoint-desktop) {
+  .video {
+
+    &__decor {
+      border-width: 2px;
+    }
+  }
+}

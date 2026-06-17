@@ -1,0 +1,411 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+// =============================================================================
+// Forms — Базовые стили форм
+// =============================================================================
+
+/* === СЕТКА ФОРМЫ === */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  align-items: start;
+  gap: $spacing-sm;
+
+  @include respond-to($breakpoint-desktop) {
+    gap: $spacing-lg;
+  }
+}
+
+/* === ПОЛЕ ФОРМЫ === */
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.form-field__label {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  margin-bottom: $spacing-2xs;
+  color: $color-gray-700;
+  display: inline-block;
+}
+
+.form-field__input,
+.form-field__select {
+  background-color: $color-white;
+  border: 1px solid $color-gray-400;
+  border-radius: $radius-sm;
+  height: $control-height-md;
+  padding: 0 $form-padding-x-md;
+  font-size: inherit;
+  line-height: $line-height-none;
+  transition: $transition-base;
+  touch-action: manipulation;
+  width: 100%;
+  font-family: inherit;
+
+  &:hover:not(:disabled) {
+    border-color: $color-gray-500;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $color-gray-500;
+    background-color: $color-white;
+    box-shadow: 0 0 0 3px rgba(108, 117, 125, 0.18);
+  }
+
+  &:disabled {
+    background-color: $color-gray-200;
+    border-color: $color-gray-300;
+    color: $color-gray-500;
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}
+
+.form-field__textarea {
+  background-color: $color-white;
+  border: 1px solid $color-gray-400;
+  border-radius: $radius-sm;
+  padding: $form-padding-y-sm $form-padding-x-sm;
+  font-size: inherit;
+  line-height: $line-height-normal;
+  transition: $transition-base;
+  touch-action: manipulation;
+  width: 100%;
+  font-family: inherit;
+  resize: vertical;
+  min-height: 80px;
+
+  &:hover:not(:disabled) {
+    border-color: $color-gray-500;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $color-gray-500;
+    background-color: $color-white;
+    box-shadow: 0 0 0 3px rgba(108, 117, 125, 0.18);
+  }
+
+  &:disabled {
+    background-color: $color-gray-200;
+    border-color: $color-gray-300;
+    color: $color-gray-500;
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}
+
+.form-field__select {
+  cursor: pointer;
+}
+
+/* === СОСТОЯНИЯ ПОЛЕЙ === */
+
+// Disabled
+.form-field__input--disabled,
+.form-field__textarea--disabled,
+.form-field__select--disabled {
+  background-color: $color-gray-200;
+  border-color: $color-gray-300;
+  color: $color-gray-500;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+// Readonly
+.form-field__input--readonly,
+.form-field__textarea--readonly,
+.form-field__select--readonly {
+  background-color: $color-gray-150;
+  cursor: default;
+}
+
+// Invalid
+.form-field__input--invalid,
+.form-field__textarea--invalid,
+.form-field__select--invalid {
+  border-color: $color-danger;
+
+  &:focus {
+    box-shadow: 0 0 0 3px rgba($color-danger, 0.2);
+  }
+}
+
+// Valid
+.form-field__input--valid,
+.form-field__textarea--valid,
+.form-field__select--valid {
+  border-color: $color-success;
+
+  &:focus {
+    box-shadow: 0 0 0 3px rgba($color-success, 0.2);
+  }
+}
+
+/* === РАЗМЕРЫ ПОЛЕЙ === */
+
+.form-field__input--sm,
+.form-field__select--sm {
+  height: $control-height-sm;
+  padding: 0 $form-padding-x-sm;
+  font-size: $font-size-sm;
+}
+
+.form-field__textarea--sm {
+  padding: $form-padding-y-sm $form-padding-x-sm;
+  font-size: $font-size-sm;
+}
+
+.form-field__input--lg,
+.form-field__select--lg {
+  height: $control-height-lg;
+  padding: 0 $form-padding-x-lg;
+  font-size: $font-size-lg;
+}
+
+.form-field__textarea--lg {
+  padding: $form-padding-y-lg $form-padding-x-lg;
+  font-size: $font-size-lg;
+}
+
+/* === СООБЩЕНИЯ === */
+
+.form-field__error {
+  display: none;
+  font-size: $font-size-sm;
+  color: $color-danger;
+  margin-top: $spacing-2xs;
+}
+
+.form-field__error--visible {
+  display: block;
+}
+
+.form-field__help {
+  font-size: $font-size-sm;
+  color: $color-text-muted;
+  margin-top: $spacing-2xs;
+}
+
+/* === ЧЕКБОКС === */
+
+.checkbox {
+  display: flex;
+}
+
+.checkbox__input {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 20px;
+  height: 20px;
+  margin: 0 $spacing-sm 0 0;
+  border: 1px solid $color-gray-400;
+  border-radius: $radius-xs;
+  background-color: $color-white;
+  cursor: pointer;
+  position: relative;
+  flex: 0 0 auto;
+  transition: $transition-base;
+  touch-action: manipulation;
+
+  &:checked {
+    background-color: $color-secondary-dark;
+    border-color: $color-secondary-dark;
+    flex-shrink: 0;
+
+    &::after {
+      content: '✓';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: $color-white;
+      font-size: 12px;
+      font-weight: $font-weight-bold;
+    }
+  }
+
+  &:hover:not(:disabled) {
+    border-color: $color-gray-500;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $color-gray-500;
+    box-shadow: 0 0 0 3px rgba(108, 117, 125, 0.18);
+  }
+
+  &:disabled {
+    background-color: $color-gray-200;
+    border-color: $color-gray-300;
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}
+
+.checkbox__label {
+  cursor: pointer;
+  margin-bottom: 0;
+  position: relative;
+  text-decoration: underline dotted;
+
+  &:has(.checkbox__input:disabled) {
+    cursor: not-allowed;
+    color: $color-gray-500;
+  }
+
+  &::first-letter {
+    text-transform: capitalize;
+  }
+}
+
+/* === ГРУППА ЧЕКБОКСОВ === */
+
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.checkbox-group--inline {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+/* === РАДИО-КНОПКА === */
+
+.radio {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+}
+
+.radio__input {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  border: 1px solid $color-gray-400;
+  border-radius: 50%;
+  background-color: $color-white;
+  cursor: pointer;
+  position: relative;
+  flex: 0 0 auto;
+  transition: $transition-base;
+  touch-action: manipulation;
+
+  &:checked {
+    background-color: $color-secondary-dark;
+    border-color: $color-secondary-dark;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: $color-white;
+    }
+  }
+
+  &:hover:not(:disabled) {
+    border-color: $color-gray-500;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $color-gray-500;
+    box-shadow: 0 0 0 3px rgba(108, 117, 125, 0.18);
+  }
+
+  &:disabled {
+    background-color: $color-gray-200;
+    border-color: $color-gray-300;
+    cursor: not-allowed;
+    opacity: 0.6;
+
+    + label {
+      color: $color-gray-600;
+    }
+  }
+}
+
+.radio__label {
+  cursor: pointer;
+  margin-bottom: 0;
+
+  &:has(.radio__input:disabled) {
+    cursor: not-allowed;
+    color: $color-gray-500;
+  }
+}
+
+/* === ГРУППА РАДИО-КНОПОК === */
+
+.radio-group {
+  display: flex;
+  gap: $spacing-md;
+  flex-wrap: wrap;
+}
+
+.radio-group--inline {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+/* === JS-ВАЛИДАЦИЯ === */
+
+.form-field__input.field-invalid {
+  border-color: $color-danger;
+  background-color: rgba($color-danger, 0.05);
+
+  &:focus {
+    box-shadow: 0 0 0 3px $color-danger-light;
+  }
+}
+
+.form-field__select.field-invalid {
+  border-color: $color-danger;
+  background-color: rgba($color-danger, 0.05);
+
+  &:focus {
+    box-shadow: 0 0 0 3px $color-danger-light;
+  }
+}
+
+.form-field__textarea.field-invalid {
+  border-color: $color-danger;
+  background-color: rgba($color-danger, 0.05);
+
+  &:focus {
+    box-shadow: 0 0 0 3px $color-danger-light;
+  }
+}
+
+.checkbox__input.field-invalid {
+  border-color: $color-danger;
+
+  &:focus {
+    box-shadow: 0 0 0 3px $color-danger-light;
+  }
+}
+
+.radio__input.field-invalid {
+  border-color: $color-danger;
+
+  &:focus {
+    box-shadow: 0 0 0 3px $color-danger-light;
+  }
+}

@@ -1,0 +1,57 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+// =============================================================================
+// Team — Секция менеджеров
+// =============================================================================
+
+.team {
+  margin-bottom: $spacing-2xl;
+
+  &__container {
+    position: relative;
+  }
+
+  &__head {
+    margin-bottom: $spacing-md;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-size: $font-size-2xl;
+    margin-bottom: $spacing-2xs;
+    text-transform: uppercase;
+    background-image: url("../../images/title-blob.png");
+    background-repeat: no-repeat;
+
+    @include respond-to($breakpoint-desktop) {
+      font-size: $font-size-3xl;
+    }
+  }
+
+  &__body {
+    margin-bottom: $spacing-md;
+  }
+
+  &__footer {
+    max-width: 360px;
+    margin: 0 auto;
+  }
+}
+
+@include respond-to($breakpoint-desktop) {
+  .team {
+    margin-bottom: $spacing-5xl;
+
+    &__body {
+      margin-bottom: $spacing-lg;
+    }
+
+    &__footer {
+      max-width: 320px;
+      margin: 0 auto;
+    }
+  }
+}

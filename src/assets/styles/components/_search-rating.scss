@@ -1,0 +1,85 @@
+@use 'sass:color';
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+// =============================================================================
+// Search Rating — Рейтинг сайта в поисковых системах (Google / Яндекс)
+// =============================================================================
+// Блок:         search-rating
+// Элементы:     search-rating__logo, search-rating__body,
+//               search-rating__service, search-rating__row,
+//               search-rating__score, search-rating__stars,
+//               search-rating__count
+// Модификаторы: search-rating--google, search-rating--yandex
+// Кастомное св-во: --rating (число от 0 до 5) задаётся в HTML инлайн-стилем
+
+$search-rating-star-color: #fbbf24; // золотой (заполненная часть)
+$search-rating-star-empty: #d1d5db; // серый (пустая часть)
+
+.search-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-2xs;
+  text-decoration: none;
+  color: inherit;
+  line-height: $line-height-tight;
+
+  &__logo {
+    flex-shrink: 0;
+    width: 64px;
+    height: 64px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__service {
+    font-weight: $font-weight-semibold;
+    position: relative;
+    top: 7px;
+  }
+
+  &__row {
+  }
+
+  &__score {
+    font-weight: $font-weight-bold;
+    margin-right: $spacing-2xs;
+  }
+
+  // Звёзды с дробным заполнением через --rating
+  &__stars {
+    --percent: calc(var(--rating, 0) / 5 * 100%);
+
+    &::before {
+      content: '★★★★★';
+      font-size: $font-size-2xl;
+      background: linear-gradient(
+              90deg,
+              $search-rating-star-color 0 var(--percent),
+              $search-rating-star-empty var(--percent) 100%
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+  }
+
+  &__count {
+    font-size: $font-size-xs;
+  }
+
+  // — Логотипы поисковых систем —
+  &--google &__logo {
+    background-image: url('../../images/svg/google-logo.svg');
+  }
+
+  &--yandex &__logo {
+    background-image: url('../../images/svg/yandex-logo.svg');
+  }
+}

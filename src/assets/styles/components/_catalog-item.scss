@@ -1,0 +1,66 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+// =============================================================================
+// Catalog Item — Карточка категории в каталоге
+// =============================================================================
+
+.catalog-item {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: $color-white;
+  padding: $spacing-md;
+  position: relative;
+  border-bottom: 1px solid $color-gray-300;
+
+  &__info {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: $spacing-md;
+  }
+
+  &__title {
+    position: relative;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-medium;
+    margin-bottom: $spacing-2xs;
+    max-width: 220px;
+    z-index: $z-overlay;
+  }
+
+  &__price {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-medium;
+    color: $color-gray-600;
+    margin-bottom: $spacing-xl;
+  }
+
+  &__image-wrap {
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+}
+
+@include respond-to($breakpoint-desktop) {
+  .catalog-item {
+    border-right: 1px solid $color-gray-300;
+    height: 100%;
+    padding: $spacing-lg;
+
+    &__info {
+      gap: $spacing-2xl;
+    }
+  }
+}

@@ -1,0 +1,39 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+// =============================================================================
+// Promo — Секция акций и спецпредложений
+// =============================================================================
+.promo {
+  margin-bottom: $spacing-2xl;
+
+  &__container {
+    position: relative;
+  }
+
+  &__head {
+    margin-bottom: $spacing-md;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-size: $font-size-2xl;
+    margin-bottom: $spacing-2xs;
+    text-transform: uppercase;
+    background-image: url("../../images/title-blob.png");
+    background-repeat: no-repeat;
+  }
+}
+
+@include respond-to($breakpoint-desktop) {
+  .promo {
+    margin-bottom: $spacing-5xl;
+
+    &__title {
+      font-size: $font-size-3xl;
+    }
+  }
+
+}

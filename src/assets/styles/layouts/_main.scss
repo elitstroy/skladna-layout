@@ -1,0 +1,16 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+// =============================================================================
+// Main layout
+// =============================================================================
+
+.main {
+  margin: $spacing-xl 0;
+}
+
+@include respond-to($breakpoint-desktop) {
+  .main {
+    margin: $spacing-3xl 0;
+  }
+}
