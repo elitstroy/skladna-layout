@@ -1,0 +1,67 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+.quick-cats {
+  padding: $spacing-xs 0;
+  background-color: $color-white;
+
+  &__wrap {
+    position: relative;
+  }
+
+  &__wrap::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(to left, white, transparent);
+  }
+
+  &__list {
+    @include list-reset;
+    display: flex;
+    gap: $spacing-md;
+    overflow-x: auto;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__item {
+    flex-shrink: 0;
+
+    &--more {
+      // Кнопка «все категории»
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    padding: $spacing-3xs 0;
+    white-space: nowrap;
+
+    &--more {
+      // Стрелка «ещё»
+    }
+  }
+
+  &__arrow {
+  }
+}
+
+@include respond-to($breakpoint-desktop) {
+  .quick-cats {
+    &__list {
+      gap: $spacing-lg;
+    }
+
+    &__wrap::after {
+      display: none;
+    }
+  }
+}

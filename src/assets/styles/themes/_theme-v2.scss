@@ -28,8 +28,8 @@
 
 .desktop-header {
   &__top {
-    background-color: $color-primary;
     padding: $spacing-sm 0 0 !important;
+    background-color: $color-primary !important;
   }
 
   &__middle {

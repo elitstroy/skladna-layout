@@ -1,7 +1,6 @@
 // =============================================================================
 // main-v1.scss — Главный файл стилей для Theme V1
 // =============================================================================
-@use 'themes/theme-v1';
 
 // 1. Base
 @use 'base/fonts';
@@ -35,12 +34,11 @@
 @use 'components/social-links';
 @use 'components/search-rating';
 @use 'components/icon';
+@use 'components/quick-cats';
 
 // 4. Layouts
 @use 'layouts/container';
 @use 'layouts/header';
-@use 'layouts/mobile-header';
-@use 'layouts/desktop-header';
 @use 'layouts/main';
 @use 'layouts/footer';
 
@@ -59,3 +57,6 @@
 
 // 6. Utilities
 @use 'utilities/utilities';
+
+// 7. Theme (must be last to override all defaults)
+@use 'themes/theme-v1';

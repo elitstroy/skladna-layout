@@ -5,7 +5,7 @@
 // Alert — Универсальный попап-уведомление
 // =============================================================================
 .alert {
-  z-index: $z-modal;
+  z-index: $z-badge;
   position: relative;
   display: flex;
   padding: $spacing-sm;

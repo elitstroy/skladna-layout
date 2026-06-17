@@ -42,12 +42,11 @@
 @use "components/social-links";
 @use 'components/search-rating';
 @use 'components/icon';
+@use 'components/quick-cats';
 
 // 4. Layouts
 @use 'layouts/container';
 @use 'layouts/header';
-@use 'layouts/mobile-header';
-@use 'layouts/desktop-header';
 @use 'layouts/main';
 @use 'layouts/footer';
 
