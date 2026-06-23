@@ -6,6 +6,7 @@ import { initSliders } from '../../shared/ui/slider';
 import { initAccordion } from '../../shared/ui/accordion';
 import { initBranches } from '../../shared/ui/branches';
 import { initTabs } from '../../shared/ui/tabs';
+import { initDropdown } from '../../shared/ui/dropdown';
 
 document.addEventListener('DOMContentLoaded', () => {
   initSliders();
@@ -17,4 +18,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
   initBranches();
   initTabs();
+  initDropdown();
 });

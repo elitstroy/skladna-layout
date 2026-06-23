@@ -13,6 +13,10 @@ body {
   background-color: $color-bg;
 }
 
+body.is-dropdown-open {
+  overflow: hidden;
+}
+
 ::selection {
   background-color: $color-primary;
   color: $color-black;

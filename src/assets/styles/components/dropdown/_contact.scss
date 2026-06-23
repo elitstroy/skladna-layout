@@ -1,0 +1,62 @@
+@use '../../base/variables' as *;
+@use '../../base/mixins' as *;
+
+// =============================================================================
+// Контакты в выпадающем меню
+// =============================================================================
+
+.contacts-dropdown {
+  &__group {
+    margin: $spacing-md 0;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // двухколоночные участки (телефоны и подписанные телефоны)
+  &__grid,
+  &__phones {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-sm;
+  }
+
+  &__phones {
+    margin: 0 0 $spacing-sm;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__label {
+    margin-bottom: $spacing-2xs;
+    font-weight: $font-weight-semibold;
+  }
+
+  &__text {
+    margin: 0 0 $spacing-sm;
+    color: $color-text-muted;
+  }
+
+  &__socials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-xs;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+}
+
+// Ссылка с иконкой: телефон, e-mail
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-xs;
+
+  &__icon {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+  }
+}

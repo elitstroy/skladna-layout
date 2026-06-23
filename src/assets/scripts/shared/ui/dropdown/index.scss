@@ -1,0 +1,151 @@
+@use '../../../../styles/base/variables' as *;
+@use '../../../../styles/base/mixins' as *;
+
+// =============================================================================
+// Dropdown — окно (мобилка: bottom sheet, десктоп: тултип по координатам)
+// =============================================================================
+
+.dropdown {
+  position: fixed;
+  inset: 0;
+  z-index: $z-modal;
+  visibility: hidden;
+  pointer-events: none;
+
+  &[data-active] {
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  // ===========================================================================
+  // Мобилка: bottom sheet (по умолчанию)
+  // ===========================================================================
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: $color-black;
+    opacity: 0;
+    transition: opacity $transition-slow;
+  }
+
+  &[data-visible] &__overlay {
+    opacity: 0.5;
+  }
+
+  &__content {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: $color-white;
+    border-radius: $radius-xl $radius-xl 0 0;
+    padding: $spacing-sm;
+    max-height: 90dvh;
+    overflow-y: auto;
+    box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.15);
+    transform: translateY(100%);
+    transition: transform $transition-slow;
+  }
+
+  &[data-visible] &__content {
+    transform: translateY(0);
+  }
+
+  // ===========================================================================
+  // Общие элементы
+  // ===========================================================================
+
+  &__close {
+    position: absolute;
+    top: $spacing-sm;
+    right: $spacing-sm;
+    cursor: pointer;
+    color: $color-text-muted;
+
+    > svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &__header {
+    padding-bottom: $spacing-sm;
+    border-bottom: 1px solid $color-border-light;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__title {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+    color: $color-text;
+  }
+
+  &__body {
+    // spacing handled by child components
+  }
+
+  &__description {
+    margin-bottom: $spacing-md;
+    color: $color-text-muted;
+    font-size: $font-size-sm;
+  }
+
+  &__footer {
+    padding-top: $spacing-sm;
+    border-top: 1px solid $color-border-light;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: flex-start;
+    gap: $spacing-xs;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+  }
+
+  &__list-item:not(:last-child) {
+    margin-bottom: 0;
+  }
+}
+
+@include respond-to($breakpoint-desktop) {
+  .dropdown {
+    inset: auto;
+    top: var(--dropdown-top);
+    left: var(--dropdown-left);
+    width: 400px;
+    max-width: 400px;
+    opacity: 0;
+    transition: opacity 0.2s ease-out;
+
+    &[data-visible] {
+      opacity: 1;
+    }
+
+    &__overlay,
+    &__corner {
+      display: none;
+    }
+
+    &__content {
+      position: relative;
+      inset: auto;
+      background: $color-white;
+      border-radius: $radius-md;
+      padding: $spacing-sm;
+      max-height: none;
+      overflow: visible;
+      box-shadow: $shadow-md;
+      border: 1px solid $color-border-light;
+      transform: none;
+      transition: none;
+    }
+  }
+}

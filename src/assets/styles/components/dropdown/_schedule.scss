@@ -1,0 +1,41 @@
+@use '../../base/variables' as *;
+@use '../../base/mixins' as *;
+
+// =============================================================================
+// Время работы в выпадающем меню
+// =============================================================================
+
+.schedule-dropdown {
+  &__heading {
+    margin-bottom: $spacing-sm;
+    font-size: $font-size-lg;
+    font-weight: 700;
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    margin: $spacing-sm 0;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__title {
+    margin-bottom: $spacing-2xs;
+    font-weight: $font-weight-semibold;
+  }
+
+  &__row {
+    margin: 0;
+
+    & + & {
+      margin-top: 2px;
+    }
+  }
+}
