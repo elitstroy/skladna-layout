@@ -13,6 +13,7 @@ body {
   background-color: $color-bg;
 }
 
+body.is-modal-open,
 body.is-dropdown-open {
   overflow: hidden;
 }

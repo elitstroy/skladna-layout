@@ -1,0 +1,161 @@
+@use '../../../../styles/base/variables' as *;
+@use '../../../../styles/base/mixins' as *;
+
+// =============================================================================
+// Modal — окно (мобилка: bottom sheet, десктоп: по центру)
+// =============================================================================
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: $z-modal;
+  visibility: hidden;
+  pointer-events: none;
+
+  &[data-active] {
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: $color-black;
+    opacity: 0;
+    transition: opacity $transition-slow;
+  }
+
+  &[data-visible] &__overlay {
+    opacity: 0.5;
+  }
+
+  // ===========================================================================
+  // Мобилка: bottom sheet (база)
+  // ===========================================================================
+
+  &__content {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    background: $color-white;
+    border-radius: $radius-xl $radius-xl 0 0;
+    max-height: 85dvh;
+    overflow: hidden; // скролл уходит в body
+    box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.15);
+    transform: translateY(100%);
+    transition: transform $transition-slow;
+  }
+
+  &[data-visible] &__content {
+    transform: translateY(0);
+  }
+
+  // ===========================================================================
+  // Закреплённый header
+  // ===========================================================================
+
+  &__header {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $spacing-sm;
+    border-bottom: 1px solid $color-border-light;
+  }
+
+  &__title {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+    color: $color-text;
+  }
+
+  &__close {
+    flex-shrink: 0;
+    cursor: pointer;
+    color: $color-text-muted;
+
+    > svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  // ===========================================================================
+  // Скроллируемая центральная часть
+  // ===========================================================================
+
+  &__body {
+    flex: 1 1 auto;
+    min-height: 0; // обязательно для скролла во флекс-колонке
+    overflow-y: auto;
+    padding: $spacing-md $spacing-sm;
+  }
+
+  // ===========================================================================
+  // Закреплённый footer
+  // ===========================================================================
+
+  &__footer {
+    flex-shrink: 0;
+    padding: $spacing-sm;
+    border-top: 1px solid $color-border-light;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: $spacing-xs;
+  }
+}
+
+// =============================================================================
+// Десктоп: окно по центру
+// =============================================================================
+
+@include respond-to($breakpoint-desktop) {
+  .modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: $spacing-lg;
+
+    &__content {
+      position: relative;
+      left: auto;
+      right: auto;
+      bottom: auto;
+      width: 800px;
+      max-width: 100%;
+      max-height: 90dvh;
+      border-radius: $radius-lg;
+      box-shadow: $shadow-md;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+    }
+
+    &[data-visible] &__content {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    &__header {
+      padding: $spacing-md $spacing-lg;
+    }
+
+    &__title {
+      font-size: $font-size-2xl;
+    }
+
+    &__body {
+      padding: $spacing-lg;
+    }
+
+    &__footer {
+      padding: $spacing-md $spacing-lg;
+    }
+  }
+}
