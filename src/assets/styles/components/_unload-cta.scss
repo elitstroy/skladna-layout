@@ -1,0 +1,85 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+// =============================================================================
+// Unload CTA — Блок «Разгрузка и подъем»
+// =============================================================================
+
+.unload-cta {
+  margin-bottom: $spacing-2xl;
+
+  &__inner {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+    background-color: $color-white;
+  }
+
+  &__body {
+    padding: $spacing-md;
+    position: relative;
+    z-index: $z-badge;
+    max-width: 520px;
+  }
+
+  &__title {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__text {
+    font-size: $font-size-sm;
+    line-height: $line-height-normal;
+    margin-bottom: $spacing-md;
+  }
+
+  &__btn {
+    width: 100%;
+  }
+
+  &__image {
+    align-self: center;
+    max-width: 260px;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  @include respond-to($breakpoint-desktop) {
+    margin-bottom: $spacing-4xl;
+
+    &__inner {
+      flex-direction: row;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: $spacing-2xl;
+    }
+
+    &__body {
+      padding: $spacing-xl;
+    }
+
+    &__title {
+      font-size: $font-size-2xl;
+    }
+
+    &__text {
+      font-size: $font-size-base;
+    }
+
+    &__btn {
+      width: auto;
+    }
+
+    &__image {
+      flex-shrink: 0;
+      align-self: flex-end;
+      max-width: 480px;
+    }
+  }
+}

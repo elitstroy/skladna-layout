@@ -1,0 +1,50 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+// =============================================================================
+// Breadcrumbs — Хлебные крошки
+// =============================================================================
+
+.breadcrumbs {
+  &__list {
+    @include list-reset;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: $spacing-2xs $spacing-xs;
+    font-size: $font-size-xs;
+    color: $color-gray-600;
+  }
+
+  &__item {
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-xs;
+
+    &:not(:last-child)::after {
+      content: "›";
+      color: $color-gray-500;
+    }
+
+    &:last-child {
+      color: $color-text;
+    }
+  }
+
+  &__link {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+      color: $color-text;
+      text-decoration: underline;
+      text-decoration-color: $color-gray-400;
+    }
+  }
+
+  @include respond-to($breakpoint-desktop) {
+    &__list {
+      font-size: $font-size-sm;
+    }
+  }
+}

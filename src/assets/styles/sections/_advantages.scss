@@ -1,0 +1,40 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+// =============================================================================
+// Advantages — Секция «Преимущества»
+// =============================================================================
+
+.advantages {
+  margin-bottom: $spacing-2xl;
+
+  &__head {
+    margin-bottom: $spacing-md;
+  }
+
+  &__title {
+    font-size: $font-size-2xl;
+    text-transform: uppercase;
+    background-repeat: no-repeat;
+  }
+
+  &__list {
+    @include list-reset;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-xs;
+  }
+
+  @include respond-to($breakpoint-desktop) {
+    margin-bottom: $spacing-4xl;
+
+    &__head {
+      margin-bottom: $spacing-lg;
+    }
+
+    &__list {
+      grid-template-columns: repeat(3, 1fr);
+      gap: $spacing-lg;
+    }
+  }
+}

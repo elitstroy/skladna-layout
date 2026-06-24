@@ -1,0 +1,45 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+// =============================================================================
+// Portfolio — Секция «Портфолио» (слайдер изображений)
+// =============================================================================
+
+.portfolio {
+  margin-bottom: $spacing-2xl;
+
+  &__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $spacing-md;
+    margin-bottom: $spacing-md;
+  }
+
+  &__title {
+    font-size: $font-size-2xl;
+    text-transform: uppercase;
+    background-repeat: no-repeat;
+  }
+
+  &__item {
+    overflow: hidden;
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+
+  &__caption {
+    margin-top: $spacing-sm;
+    font-size: $font-size-sm;
+    color: $color-gray-700;
+  }
+
+  @include respond-to($breakpoint-desktop) {
+    margin-bottom: $spacing-4xl;
+  }
+}

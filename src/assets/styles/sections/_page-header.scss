@@ -1,0 +1,26 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+// =============================================================================
+// Page Header — Шапка страницы (хлебные крошки + заголовок)
+// =============================================================================
+
+.page-header {
+  margin-bottom: $spacing-md;
+
+  &__breadcrumbs {
+  }
+
+  &__title {
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-snug;
+  }
+
+  @include respond-to($breakpoint-desktop) {
+
+    &__title {
+      font-size: $font-size-4xl;
+    }
+  }
+}

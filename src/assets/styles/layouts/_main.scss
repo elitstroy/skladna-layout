@@ -6,11 +6,15 @@
 // =============================================================================
 
 .main {
+  margin: $spacing-lg 0;
+}
+
+.main--home {
   margin: $spacing-xl 0;
 }
 
 @include respond-to($breakpoint-desktop) {
-  .main {
+  .main--home {
     margin: $spacing-3xl 0;
   }
 }

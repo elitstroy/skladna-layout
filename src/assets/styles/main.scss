@@ -23,6 +23,11 @@
 @use 'components/logo';
 @use 'components/alert';
 @use 'components/tabs';
+@use 'components/breadcrumbs';
+@use 'components/tariff-card';
+@use 'components/unload-cta';
+@use 'components/advantage-card';
+@use 'components/faq-item';
 @use 'components/forms';
 @use 'components/buttons';
 @use 'components/slider';
@@ -55,6 +60,12 @@
 
 // 5. Sections
 @use 'sections/alert-bar';
+@use 'sections/page-header';
+@use 'sections/tariffs';
+@use 'sections/calculator';
+@use 'sections/advantages';
+@use 'sections/faq';
+@use 'sections/portfolio';
 @use 'sections/hero';
 @use 'sections/catalog';
 @use 'sections/products';

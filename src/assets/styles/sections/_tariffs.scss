@@ -1,0 +1,84 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+// =============================================================================
+// Tariffs — Секция тарифов (ссылки услуг + карточки цен)
+// =============================================================================
+
+.tariffs {
+  margin-bottom: $spacing-2xl;
+
+  // Ссылки услуг (визуально идентичны табам)
+  &__links {
+    @include list-reset;
+    display: flex;
+    scrollbar-width: none;
+    gap: $spacing-2xs;
+    margin-bottom: $spacing-md;
+    overflow-x: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__links-item {
+    flex-shrink: 0;
+  }
+
+  &__links-btn {
+    display: inline-block;
+    background-color: $color-white;
+    padding: $spacing-xs $spacing-sm;
+    white-space: nowrap;
+    text-decoration: none;
+    color: inherit;
+    transition: background-color $transition-base, color $transition-base;
+
+    &--active,
+    &[aria-current="page"] {
+      background-color: $color-primary;
+      color: $color-black;
+    }
+  }
+
+  // Список карточек: на мобильных — отдельные блоки с отступами,
+  // на десктопе — единая белая панель с разделителями
+  &__list {
+    @include list-reset;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  &__item {
+    border: 1px solid $color-border-light;
+  }
+
+  @include respond-to($breakpoint-desktop) {
+    margin-bottom: $spacing-4xl;
+
+    &__links {
+      margin-bottom: $spacing-2xl;
+    }
+
+    &__links-btn {
+      font-size: $font-size-base;
+      padding: $spacing-sm $spacing-md;
+    }
+
+    &__list {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      background-color: $color-white;
+      border: 1px solid $color-border-light;
+    }
+
+    &__item {
+      border: 0;
+
+      &:not(:first-child) {
+        border-left: 1px solid $color-border-light;
+      }
+    }
+  }
+}

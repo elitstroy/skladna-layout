@@ -1,0 +1,81 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+// =============================================================================
+// Tariff Card — Карточка тарифа доставки (Минск / Пригород / Вся Беларусь)
+// =============================================================================
+
+.tariff-card {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+  padding: $spacing-md;
+  background-color: $color-white;
+  height: 100%;
+
+  &__head {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-3xs;
+  }
+
+  &__title {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+    text-transform: uppercase;
+  }
+
+  &__subtitle {
+    color: $color-gray-600;
+  }
+
+  &__body {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: $spacing-sm;
+    margin-top: auto;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-3xs;
+  }
+
+  &__note {
+  }
+
+  &__hint {
+  }
+
+  &__price {
+    flex-shrink: 0;
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    white-space: nowrap;
+    line-height: $line-height-none;
+  }
+
+  @include respond-to($breakpoint-desktop) {
+    padding: $spacing-xl;
+    gap: $spacing-sm;
+
+    &__title {
+      font-size: $font-size-xl;
+    }
+
+    &__subtitle {
+      font-size: $font-size-sm;
+    }
+
+    &__hint,
+    &__info {
+      font-size: $font-size-md;
+    }
+
+    &__price {
+      font-size: $font-size-2xl;
+    }
+  }
+}

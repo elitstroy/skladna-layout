@@ -1,0 +1,119 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+// =============================================================================
+// Advantage Card — Карточка преимущества (Преимущества доставки)
+// =============================================================================
+
+.advantage-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  height: 100%;
+  padding: $spacing-lg $spacing-md;
+  background-color: $color-white;
+
+  &__image-wrap {
+    max-width: 96px;
+  }
+
+  &__image {
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+  }
+
+  &__title {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+    text-transform: uppercase;
+  }
+
+  &__list {
+    @include list-reset;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+  }
+
+  &__list-item {
+    position: relative;
+    padding-left: $spacing-md;
+    font-size: $font-size-sm;
+    line-height: $line-height-normal;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 6px;
+      width: 8px;
+      height: 8px;
+      background-color: $color-secondary-dark;
+    }
+
+    strong {
+      font-weight: $font-weight-bold;
+    }
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-2xs;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $color-secondary-dark;
+
+    .icon {
+      width: 1em;
+      height: 1em;
+      fill: currentColor;
+    }
+
+    &:hover {
+      color: $color-text;
+    }
+  }
+
+  // Поясняющий бокс (расписание доставки)
+  &__note {
+    margin-top: auto;
+    padding: $spacing-sm $spacing-md;
+    background-color: $color-warning;
+    font-size: $font-size-sm;
+    line-height: $line-height-normal;
+    color: $color-gray-700;
+  }
+
+  &__note-list {
+    @include list-reset;
+    margin: $spacing-2xs 0;
+
+    li {
+      position: relative;
+      padding-left: $spacing-md;
+
+      &::before {
+        content: "•";
+        position: absolute;
+        left: $spacing-2xs;
+      }
+    }
+  }
+
+  @include respond-to($breakpoint-desktop) {
+    padding: $spacing-lg;
+
+    &__title {
+      font-size: $font-size-xl;
+    }
+
+    &__list-item {
+      font-size: $font-size-base;
+    }
+  }
+}

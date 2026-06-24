@@ -1,0 +1,74 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+// =============================================================================
+// FAQ Item — Элемент аккордеона «Часто задаваемые вопросы»
+// =============================================================================
+
+.faq-item {
+  background-color: $color-white;
+  border: 1px solid $color-border-light;
+
+  &__trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $spacing-sm;
+    width: 100%;
+    padding: $spacing-md;
+    background: none;
+    border: 0;
+    text-align: left;
+    cursor: pointer;
+    font-family: inherit;
+    color: inherit;
+  }
+
+  &__question {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+  }
+
+  // Иконка +/−
+  &__icon {
+    position: relative;
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    background-color: $color-gray-200;
+    border-radius: $radius-xs;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 12px;
+      height: 2px;
+      background-color: $color-gray-700;
+      transform: translate(-50%, -50%);
+      transition: opacity $transition-base, transform $transition-base;
+    }
+
+    // вертикальная палочка (для «+»)
+    &::after {
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+  }
+
+  // Когда раскрыто — показываем «−» (прячем вертикальную палочку)
+  &__trigger[aria-expanded="true"] &__icon::after {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  &__panel {
+    padding: 0 $spacing-md $spacing-md;
+  }
+
+  &__answer {
+    font-size: $font-size-md;
+    color: $color-gray-600;
+  }
+}
