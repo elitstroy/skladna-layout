@@ -16,21 +16,25 @@ $color-secondary: #00D3E8;
 $color-secondary-light: color.adjust($color-secondary, $lightness: 3%);
 $color-secondary-dark: color.adjust($color-secondary, $lightness: -3%);
 
-$color-success: #28a745;
+$color-success: #DDF6D1;
 $color-success-light: color.adjust($color-success, $lightness: 6%);
-$color-success-dark: color.adjust($color-success, $lightness: -6%);
+$color-success-dark: color.adjust($color-success, $lightness: -18%);
+$color-success-darker: color.adjust($color-success, $lightness: -36%);
 
-$color-info: #E9F4FCFF;
-$color-danger-light: color.adjust($color-info, $lightness: 6%);
-$color-danger-dark: color.adjust($color-info, $lightness: -6%);
+$color-info: #E2F2FF;
+$color-info-light: color.adjust($color-info, $lightness: 6%);
+$color-info-dark: color.adjust($color-info, $lightness: -18%);
+$color-info-darker: color.adjust($color-info, $lightness: -36%);
 
-$color-danger: #FFE1DDFF;
+$color-danger: #FFE1DD;
 $color-danger-light: color.adjust($color-danger, $lightness: 6%);
-$color-danger-dark: color.adjust($color-danger, $lightness: -6%);
+$color-danger-dark: color.adjust($color-danger, $lightness: -18%);
+$color-danger-darker: color.adjust($color-danger, $lightness: -36%);
 
-$color-warning: #FDF1E0FF;
+$color-warning: #FFF0DA;
 $color-warning-light: color.adjust($color-warning, $lightness: 6%);
-$color-warning-dark: color.adjust($color-warning, $lightness: -6%);
+$color-warning-dark: color.adjust($color-warning, $lightness: -18%);
+$color-warning-darker: color.adjust($color-warning, $lightness: -36%);
 
 // Серые тона
 $color-gray-100: #f8f9fa;

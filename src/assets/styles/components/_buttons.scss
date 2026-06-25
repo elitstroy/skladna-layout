@@ -104,37 +104,37 @@
 
 // Желтая
 .button-warning, .btn-warning {
-  background-color: $color-warning;
-  border-color: $color-warning;
+  background-color: $color-warning-dark;
+  border-color: $color-warning-dark;
   color: $color-black;
 
   &:hover {
-    background-color: $color-warning-dark;
-    border-color: $color-warning-dark;
+    background-color: $color-warning-darker;
+    border-color: $color-warning-darker;
   }
 }
 
 // Красная
 .button-danger, .btn-danger {
-  background-color: $color-danger;
-  border-color: $color-danger;
+  background-color: $color-danger-dark;
+  border-color: $color-danger-dark;
   color: $color-black;
 
   &:hover {
-    background-color: $color-danger-dark;
-    border-color: $color-danger-dark;
+    background-color: $color-danger-darker;
+    border-color: $color-danger-darker;
   }
 }
 
 // Зеленая
 .button-success, .btn-success {
-  background-color: $color-success;
-  border-color: $color-success;
+  background-color: $color-success-dark;
+  border-color: $color-success-dark;
   color: $color-black;
 
   &:hover {
-    background-color: $color-success-dark;
-    border-color: $color-success-dark;
+    background-color: $color-success-darker;
+    border-color: $color-success-darker;
   }
 }
 
@@ -309,12 +309,6 @@
   flex-shrink: 0;
   width: 1.375em;
   height: 1.375em;
-
-/*  svg {
-    width: 100%;
-    height: 100%;
-    fill: currentColor;
-  }*/
 }
 
 .btn > .icon {
