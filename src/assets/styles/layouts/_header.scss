@@ -73,9 +73,47 @@
     gap: $spacing-md;
   }
 
+  &__nav-item--dropdown {
+    position: relative;
+  }
+
   &__nav-link {
     display: block;
     padding: $spacing-3xs 0;
+  }
+
+  &__nav-sub {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding-top: $spacing-2xs;
+    z-index: $z-floating;
+  }
+
+  // Показ подменю при наведении на родительский пункт
+  &__nav-item--dropdown:hover &__nav-sub {
+    display: block;
+  }
+
+  &__nav-sub-list {
+    min-width: 200px;
+    background: $color-white;
+    border: 1px solid $color-border-light;
+    border-radius: $radius-md;
+    box-shadow: $shadow-md;
+  }
+
+  &__nav-sub-link {
+    text-decoration: none;
+    display: block;
+    padding: $spacing-xs $spacing-sm;
+    white-space: nowrap;
+    transition: background-color $transition-fast;
+
+    &:hover {
+      background-color: $color-gray-100;
+    }
   }
 
   &__nav-link--accent {
