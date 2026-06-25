@@ -6,7 +6,7 @@ import {initAccordion} from '../../shared/ui/accordion';
 document.addEventListener('DOMContentLoaded', () => {
     // Аккордеон FAQ — работает на всех разрешениях
     initAccordion({
-        selector: '.faq-item',
+        selector: '[data-accordion="faq"]',
         oneAtATime: false,
     });
 });

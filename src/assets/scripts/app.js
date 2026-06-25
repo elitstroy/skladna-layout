@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initSliders();
 
     initAccordion({
-        selector: '.footer__nav-group',
+        selector: '[data-accordion="footer"]',
         breakpoint: '(min-width: 1200px)',
     });
 
