@@ -9,6 +9,36 @@
   position: sticky;
   top: 0;
   z-index: $z-sticky;
+
+  // Схлопываемые верхние бары — обе шапки
+  .mobile-header__top,
+  .desktop-header__top {
+    opacity: 1;
+    transition: height $transition-base, opacity $transition-fast;
+  }
+
+  // Компактный режим — прячем верхний бар
+  &.is-sticky {
+    .mobile-header__top,
+    .desktop-header__top {
+      height: 0;
+      opacity: 0;
+    }
+  }
+
+  // Полный хедер при скролле вверх
+  &.is-scrolling-up {
+    .mobile-header__top,
+    .desktop-header__top {
+      opacity: 1;
+    }
+  }
+
+  // Стартовая отрисовка без анимации (reload в середине)
+  &.is-init .mobile-header__top,
+  &.is-init .desktop-header__top {
+    transition: none;
+  }
 }
 
 // -----------------------------------------------------------------------------
@@ -26,7 +56,9 @@
   }
 
   &__top {
-    padding: $spacing-xs 0;
+    height: 42px;
+    display: flex;
+    align-items: center;
     background-color: $color-white;
   }
 
@@ -215,7 +247,7 @@
     border-bottom: 1px dotted rgba(0, 0, 0, 0.3);
   }
 
-  &__actions-button:hover &__actions-text  {
+  &__actions-button:hover &__actions-text {
     border-bottom: 1px dotted $color-text;
   }
 }
@@ -232,8 +264,10 @@
 
 .mobile-header {
   &__top {
+    height: 30px;
+    display: flex;
+    align-items: flex-end;
     background-color: $color-primary;
-    padding: $spacing-xs 0 0;
   }
 
   &__row {

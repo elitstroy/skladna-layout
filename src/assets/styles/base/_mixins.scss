@@ -21,6 +21,7 @@
 
 /// Контейнер с максимальной шириной
 @mixin container() {
+  width: 100%;
   max-width: $container-max-width;
   margin-inline: auto;
   padding-inline: $spacing-xs;
