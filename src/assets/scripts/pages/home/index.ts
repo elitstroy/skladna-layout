@@ -11,6 +11,7 @@ import {initModal} from '../../shared/ui/modal';
 import {initHeader} from '../../shared/ui/header';
 
 document.addEventListener('DOMContentLoaded', () => {
+    initHeader();
     initSliders();
 
     initAccordion({
@@ -22,5 +23,4 @@ document.addEventListener('DOMContentLoaded', () => {
     initTabs();
     initModal();
     initDropdown();
-    initHeader();
 });

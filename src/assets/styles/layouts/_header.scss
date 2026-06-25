@@ -9,35 +9,20 @@
   position: sticky;
   top: 0;
   z-index: $z-sticky;
+  transition: top $transition-base;
 
-  // Схлопываемые верхние бары — обе шапки
-  .mobile-header__top,
-  .desktop-header__top {
-    opacity: 1;
-    transition: height $transition-base, opacity $transition-fast;
-  }
-
-  // Компактный режим — прячем верхний бар
   &.is-sticky {
-    .mobile-header__top,
-    .desktop-header__top {
-      height: 0;
-      opacity: 0;
-    }
+    top: -30px;
   }
 
-  // Полный хедер при скролле вверх
   &.is-scrolling-up {
-    .mobile-header__top,
-    .desktop-header__top {
-      opacity: 1;
-    }
+    top: 0;
   }
 
-  // Стартовая отрисовка без анимации (reload в середине)
-  &.is-init .mobile-header__top,
-  &.is-init .desktop-header__top {
-    transition: none;
+  @include respond-to($breakpoint-desktop) {
+    &.is-sticky {
+      top: -42px;
+    }
   }
 }
 
@@ -56,9 +41,7 @@
   }
 
   &__top {
-    height: 42px;
-    display: flex;
-    align-items: center;
+    padding: $spacing-xs 0;
     background-color: $color-white;
   }
 
@@ -250,10 +233,8 @@
   &__actions-button:hover &__actions-text {
     border-bottom: 1px dotted $color-text;
   }
-}
 
-@include respond-to($breakpoint-desktop) {
-  .desktop-header {
+  @include respond-to($breakpoint-desktop) {
     display: block;
   }
 }
@@ -264,9 +245,7 @@
 
 .mobile-header {
   &__top {
-    height: 30px;
-    display: flex;
-    align-items: flex-end;
+    padding: $spacing-xs 0 0;
     background-color: $color-primary;
   }
 
@@ -356,10 +335,8 @@
       color: $color-gray-600;
     }
   }
-}
 
-@include respond-to($breakpoint-desktop) {
-  .mobile-header {
+  @include respond-to($breakpoint-desktop) {
     display: none;
   }
 }

@@ -14,8 +14,6 @@ interface HeaderOptions {
     threshold?: number;
     directionSensitivity?: number;
     scrollUpSensitivity?: number;
-    /** Длительность CSS-перехода в мс. ДОЛЖНА совпадать с $transition-base */
-    transitionDuration?: number;
 }
 
 class Header {
@@ -27,9 +25,6 @@ class Header {
     private direction: 'up' | 'down' = 'down';
 
     private currentState: State = 'top';
-    private pendingState: State = 'top';
-    private locked = false;
-    private lockTimer = 0;
     private ticking = false;
 
     private boundOnScroll: () => void;
@@ -41,7 +36,6 @@ class Header {
             threshold: 5,
             directionSensitivity: 8,
             scrollUpSensitivity: 24,
-            transitionDuration: 300,
             ...options,
         };
 
@@ -65,7 +59,6 @@ class Header {
         if (this.lastY > this.config.threshold) {
             this.direction = 'down';
             this.currentState = 'compact';
-            this.pendingState = 'compact';
             this.applyState('compact');
         }
 
@@ -82,11 +75,8 @@ class Header {
      * */
     public destroy(): void {
         window.removeEventListener('scroll', this.boundOnScroll);
-        window.clearTimeout(this.lockTimer);
         this.header.classList.remove(CLASS_STICKY, CLASS_SCROLLING_UP, CLASS_INIT);
         this.currentState = 'top';
-        this.pendingState = 'top';
-        this.locked = false;
     }
 
     // ===========================================================================
@@ -102,7 +92,7 @@ class Header {
 
         // У самого верха — всегда полный хедер
         if (y <= this.config.threshold) {
-            this.requestState('top');
+            this.setState('top');
             this.direction = 'down';
             this.anchorY = y;
             this.lastY = y;
@@ -122,45 +112,25 @@ class Header {
         const travelled = Math.abs(y - this.anchorY);
 
         if (this.direction === 'down' && travelled >= this.config.directionSensitivity) {
-            this.requestState('compact');
+            this.setState('compact');
         } else if (this.direction === 'up' && travelled >= this.config.scrollUpSensitivity) {
-            this.requestState('expanded');
+            this.setState('expanded');
         }
 
         this.lastY = y;
     }
 
     // ===========================================================================
-    // Управление состоянием с блокировкой на время анимации
+    // Управление состоянием
     // ===========================================================================
 
-    /**
-     * Запоминает желаемое состояние. Применяет сразу, если не заблокировано;
-     * иначе применит после завершения текущего перехода.
-     * */
-    private requestState(state: State): void {
-        this.pendingState = state;
-
-        if (!this.locked) {
-            this.commitPending();
-        }
-    }
-
-    private commitPending(): void {
-        if (this.pendingState === this.currentState) {
+    private setState(state: State): void {
+        if (state === this.currentState) {
             return;
         }
 
-        this.applyState(this.pendingState);
-        this.currentState = this.pendingState;
-
-        // Блокируем смену состояния, пока CSS-переход не доиграет
-        this.locked = true;
-        window.clearTimeout(this.lockTimer);
-        this.lockTimer = window.setTimeout(() => {
-            this.locked = false;
-            this.commitPending(); // применяем накопленное состояние, если изменилось
-        }, this.config.transitionDuration);
+        this.applyState(state);
+        this.currentState = state;
     }
 
     private applyState(state: State): void {

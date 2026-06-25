@@ -2,12 +2,14 @@
 // delivery.ts — Точка входа Vite (страница «Доставка»)
 // =============================================================================
 import '../../app.js';
+import {initHeader} from '../../shared/ui/header';
 import {initSliders} from '../../shared/ui/slider';
 import {initAccordion} from '../../shared/ui/accordion';
 import {initDropdown} from '../../shared/ui/dropdown';
 import {initModal} from '../../shared/ui/modal';
 
 document.addEventListener('DOMContentLoaded', () => {
+    initHeader();
     initSliders();
 
     // Аккордеон навигации в подвале (как на главной)
