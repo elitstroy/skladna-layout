@@ -50,6 +50,7 @@
     svg {
       width: 100%;
       height: 100%;
+      fill: none;
     }
   }
 
@@ -75,6 +76,7 @@
   &__actions {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     gap: $spacing-xs;
     width: 100%;
     max-width: 300px;
@@ -101,6 +103,10 @@
     background-color: $color-info;
   }
 
+  &--success {
+    background-color: $color-success;
+  }
+
   &--danger {
     background-color: $color-danger;
   }
@@ -112,6 +118,14 @@
     gap: $spacing-lg;
     flex-direction: row;
     padding: $spacing-md;
+
+    &__title {
+      font-size: $font-size-base;
+    }
+
+    &__text {
+      font-size: $font-size-sm;
+    }
 
     &__icon {
       display: flex;

@@ -12,6 +12,7 @@ export default defineConfig({
                 'home': resolve(__dirname, 'src/view/home.html'),
                 'delivery': resolve(__dirname, 'src/view/delivery.html'),
                 'ui-kit-forms': resolve(__dirname, 'src/view/ui-kit-forms.html'),
+                'ui-kit-alerts': resolve(__dirname, 'src/view/ui-kit-alerts.html'),
             }
         }
     },
