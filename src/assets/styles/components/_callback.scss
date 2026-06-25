@@ -36,6 +36,10 @@
     gap: $spacing-sm;
   }
 
+  &__input {
+    border: none;
+  }
+
   &__image-wrap {
     flex-shrink: 0;
     overflow: hidden;

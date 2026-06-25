@@ -172,6 +172,7 @@
 
   &__search-input {
     padding-left: 45px;
+    border: none;
 
     &::placeholder {
       color: $color-gray-600;

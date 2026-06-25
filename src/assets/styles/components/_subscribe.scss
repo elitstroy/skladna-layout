@@ -30,6 +30,10 @@
     flex-direction: column;
     gap: 12px;
   }
+
+  &__input {
+    border: none;
+  }
 }
 
 @include respond-to($breakpoint-desktop) {
