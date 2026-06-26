@@ -120,8 +120,8 @@
     inset: auto;
     top: var(--dropdown-top);
     left: var(--dropdown-left);
-    width: 400px;
-    max-width: 400px;
+      width: 400px;
+      max-width: 400px;
     opacity: 0;
     transition: opacity 0.2s ease-out;
 
@@ -147,5 +147,19 @@
       transform: none;
       transition: none;
     }
+
+    // =========================================================================
+    // Модификаторы размеров
+    // =========================================================================
+
+      &--sm {
+        width: 250px;
+        max-width: 250px;
+      }
+
+      &--lg {
+        width: 650px;
+        max-width: 650px;
+      }
   }
 }
